@@ -19,7 +19,7 @@ FOLDER_PATHS = {
     }
 }
 
-REGIONS = {"merchant": {"area": (305, 220, 640, 640), "logo": (610, 125, 30, 30)}}
+REGIONS = {"merchant": {"area": (305, 220, 640, 640), "logo": (622, 130, 8, 8)}}
 
 FILE_NAMES = {
     "assets": {
@@ -34,6 +34,5 @@ FILE_NAMES = {
         }
     }
 }
-
 
 PIXEL_SIZES = {"inventory": {"slot": 53}}

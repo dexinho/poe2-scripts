@@ -3,7 +3,9 @@ from utility.find_image import find_image
 from utility.focus_game import focus_game
 from utility.enter_hideout import enter_hideout
 from utility.move_item import move_item
+import pyautogui
 
+pyautogui.PAUSE = 0
 
 def find_merchant():
     image_result = find_image(
@@ -43,7 +45,7 @@ def auto_buy():
             if image_result["is_found"]:
                 break
 
-        enter_hideout()
+        # enter_hideout()
         focus_game()
 
 
