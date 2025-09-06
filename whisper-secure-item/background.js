@@ -1,13 +1,4 @@
-const activeTradeTabs = new Set();
-
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (tab.url?.includes('pathofexile.com/trade2/search/poe2')) {
-    if (changeInfo.status === 'complete') {
-      activeTradeTabs.add(tabId);
-    }
-  }
-});
-
-chrome.tabs.onRemoved.addListener((tabId) => {
-  activeTradeTabs.delete(tabId);
+// Not used yet, but required by manifest
+chrome.runtime.onInstalled.addListener(() => {
+  console.log("PoE Trade Auto-Whisper Pro installed.");
 });

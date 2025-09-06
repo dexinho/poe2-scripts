@@ -2,11 +2,18 @@
   "manifest_version": 3,
   "name": "PoE Trade Auto-Whisper Pro",
   "version": "1.0",
-  "description": "Automatically clicks Direct Whisper buttons across multiple PoE trade tabs",
+  "description": "Automatically clicks Direct Whisper buttons on PoE trade.",
   "content_scripts": [
     {
-      "matches": ["https://www.pathofexile.com/*"],
-      "js": ["app.js"]
+      "matches": ["https://www.pathofexile.com/trade*"],
+      "js": ["app.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["https://www.pathofexile.com/*"]
     }
   ],
   "background": {

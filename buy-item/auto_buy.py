@@ -4,6 +4,7 @@ from utility.focus_game import focus_game
 from utility.enter_hideout import enter_hideout
 from utility.move_item import move_item
 import pyautogui
+import time  # <-- added
 
 pyautogui.PAUSE = 0
 
@@ -31,6 +32,7 @@ def auto_buy():
     while True:
         is_merchant_found = find_merchant()
         if not is_merchant_found:
+            time.sleep(0.05)
             continue
 
         focus_game()
@@ -45,8 +47,9 @@ def auto_buy():
             if image_result["is_found"]:
                 break
 
-        # enter_hideout()
+        enter_hideout()
         focus_game()
+
 
 
 auto_buy()

@@ -15,11 +15,15 @@ FOLDER_PATHS = {
         "images": {
             "items": BASE_PATH / "assets" / "images" / "items",
             "merchant": BASE_PATH / "assets" / "images" / "merchant",
+            "loading": BASE_PATH / "assets" / "images" / "loading",
         }
     }
 }
 
-REGIONS = {"merchant": {"area": (305, 220, 640, 640), "logo": (622, 130, 8, 8)}}
+REGIONS = {
+    "merchant": {"area": (305, 220, 640, 640), "logo": (622, 130, 8, 8)},
+    "loading": {"loading_screen": (1250, 850, 300, 300)},
+}
 
 FILE_NAMES = {
     "assets": {
@@ -31,6 +35,7 @@ FILE_NAMES = {
                 "item_highlight_4": "item_highlight_4.png",
             },
             "merchant": {"logo": "merchant_logo.png"},
+            "loading": {"loading_screen": "loading_screen.png"},
         }
     }
 }
