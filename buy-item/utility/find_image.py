@@ -1,7 +1,6 @@
 import pyautogui
 import os
 
-
 def find_image(region, folder, image_name):
     image_path = os.path.join(folder, image_name)
 
