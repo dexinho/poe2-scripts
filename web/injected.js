@@ -3,7 +3,7 @@
   console.log("PoE Trade Auto-Whisper (XHR Hook)");
   localStorage.poe_trade_run_script = "true";
 
-  const whisperCooldown = 10;
+  const whisperCooldown = 1000;
   const travelToHideoutCooldown = 1000;
   const whisperLimits = {
     perMinute: 15,
@@ -158,4 +158,12 @@
     });
     return origOpen.apply(this, args);
   };
+
+  // setInterval(() => {
+  //   try {
+  //     handleButtons();
+  //   } catch (e) {
+  //     console.error("[ext] Interval handleButtons error:", e);
+  //   }
+  // }, 7000);
 })();
