@@ -1,0 +1,3 @@
+class PoeNotActiveError(Exception):
+    pass
+

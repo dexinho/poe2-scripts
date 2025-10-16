@@ -1,12 +1,15 @@
-from utility.config import REGIONS, FOLDER_PATHS, FILE_NAMES, HIDEOUT_OWNERS
-from utility.find_image import find_image
+from utility.config import REGIONS, FOLDER_PATHS, IMAGE_NAMES, HIDEOUT_OWNERS
+from utility.locate_image import locate_image
 from utility.focus_game import focus_game
 from utility.enter_hideout import enter_hideout
 from utility.move_item import move_item
 import pyautogui
 import time
 
-def join_hideout(owner_name=''):
+pyautogui.FAILSAFE = False
+
+
+def join_hideout(owner_name=""):
     time.sleep(0.1)
     pyautogui.press("enter")
     time.sleep(0.1)
@@ -15,20 +18,20 @@ def join_hideout(owner_name=''):
     pyautogui.press("enter")
 
 
-def find_merchant():
-    image_result = find_image(
+def locate_merchant():
+    image_result = locate_image(
         region=REGIONS["merchant"]["logo"],
-        folder=FOLDER_PATHS["assets"]["images"]["merchant"],
-        image_name=FILE_NAMES["assets"]["images"]["merchant"]["logo"],
+        folder_path=FOLDER_PATHS["assets"]["images"]["merchant"],
+        image_name=IMAGE_NAMES["merchant"]["logo"],
     )
     return image_result["is_found"]
 
 
 def snipe_item(region, folder, image_name):
-    image_result = find_image(region, folder, image_name)
+    image_result = locate_image(region, folder, image_name)
     if image_result["is_found"]:
         print(image_name)
-        move_item(x=image_result["position"]["x"], y=image_result["position"]["y"])
+        move_item(image_result["position"])
     return image_result
 
 
@@ -38,7 +41,7 @@ def auto_buy():
 
     owners = list(HIDEOUT_OWNERS.keys())
     idx = 0
-    delay_seconds = 300
+    delay_seconds = 180
 
     while True:
 
@@ -50,16 +53,16 @@ def auto_buy():
             idx = (idx + 1) % len(owners)
             last_join = time.time()
 
-        is_merchant_found = find_merchant()
+        is_merchant_found = locate_merchant()
         if not is_merchant_found:
             time.sleep(0.20)
             continue
 
-        for key in FILE_NAMES["assets"]["images"]["items"]:
+        for key in IMAGE_NAMES["items"]:
             image_result = snipe_item(
                 region=REGIONS["merchant"]["area"],
-                folder=FOLDER_PATHS["assets"]["images"]["items"],
-                image_name=FILE_NAMES["assets"]["images"]["items"][key],
+                folder_path=FOLDER_PATHS["assets"]["images"]["items"],
+                image_name=IMAGE_NAMES["items"][key],
             )
             if image_result["is_found"]:
                 break

@@ -1,7 +1,8 @@
 import pyautogui
 import time
-from utility.config import REGIONS, FOLDER_PATHS, FILE_NAMES
-from utility.find_image import find_image
+from utility.config import REGIONS, FOLDER_PATHS, IMAGE_NAMES, STARTING_POSITIONS
+from utility.inventory_management import select_currency
+from utility.locate_image import locate_image
 
 pyautogui.PAUSE = 0.005
 
@@ -18,10 +19,10 @@ def highlight_items(item_name):
 
 
 def craft_result():
-    image_res = find_image(
-        region=REGIONS["stash"]["area"],
-        folder=FOLDER_PATHS["assets"]["images"]["craft"],
-        image_name=FILE_NAMES["assets"]["images"]["craft"]["item_highlight"],
+    image_res = locate_image(
+        region=REGIONS["stash"]["tabs"]["currency"]["middle_extra_slot_area"],
+        folder_path=FOLDER_PATHS["assets"]["images"]["stash"]["tabs"]["currency"],
+        image_name=IMAGE_NAMES["stash"]["tabs"]["currency"]["highlight"],
     )
 
     print(image_res["is_found"])
@@ -31,20 +32,9 @@ def craft_result():
 
 
 def select_chaos_orb():
-    image_res = find_image(
-        region=REGIONS["inventory"]["area"],
-        folder=FOLDER_PATHS["assets"]["images"]["currency"],
-        image_name=FILE_NAMES["assets"]["images"]["currency"]["chaos_orb"],
-    )
-    if image_res["is_found"]:
-        pyautogui.moveTo(image_res["position"]["x"], image_res["position"]["y"])
-        time.sleep(0.05)
-        pyautogui.rightClick()
-        time.sleep(0.05)
+    image_res = select_currency("chaos_orb")
 
-        return True
-
-    return False
+    return image_res
 
 
 def chaos_slam():
@@ -52,12 +42,15 @@ def chaos_slam():
     if not chaos_orb_selected:
         return
 
-    highlight_items("skills")
+    highlight_items("light")
     pyautogui.keyDown("shift")
     time.sleep(0.05)
-    pyautogui.moveTo(330, 440)
-    time.sleep(0.05)
+
     while True:
+        pyautogui.moveTo(
+            STARTING_POSITIONS["stash"]["tabs"]["currency"]["extra_middle_slot"]
+        )
+        time.sleep(0.02)
         pyautogui.click()
         time.sleep(0.25)
         is_craft_successful = craft_result()

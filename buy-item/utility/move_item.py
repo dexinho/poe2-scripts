@@ -2,19 +2,13 @@ import pyautogui
 import time
 
 
-def move_item(x, y):
-    pyautogui.moveTo(x, y)
+def move_item(pos):
+    pyautogui.moveTo(pos)
     time.sleep(0.05)
 
     pyautogui.keyDown("ctrl")
     time.sleep(0.05)
 
-    pyautogui.click()
-    time.sleep(0.05)
-    pyautogui.click()
-    time.sleep(0.05)
-    pyautogui.click()
-    time.sleep(0.05)
     pyautogui.click()
     time.sleep(0.05)
 
