@@ -18,7 +18,6 @@ from utility.stash_management import locate_currency_tab_currency, open_stash_ta
 from utility.poe2_main import start_poe2, click_icon, character_active
 from utility.errors import PoeNotActiveError
 
-# pyautogui.FAILSAFE = False
 pyautogui.PAUSE = 0
 
 
@@ -48,23 +47,6 @@ def buy_from_gwennen():
         time.sleep(0.02)
         pyautogui.click()
         time.sleep(0.02)
-
-    # if (
-    #     not GENERATE_GOLD_DATA["is_search_active"]
-    #     or GENERATE_GOLD_DATA["total_items_bought"]
-    #     <= GENERATE_GOLD_DATA["refresh_shop_trehshold"] * 2
-    # ):
-    #     pyautogui.keyDown("ctrl")
-    #     time.sleep(0.05)
-    #     pyautogui.press("f")
-    #     time.sleep(0.05)
-    #     pyautogui.keyUp("ctrl")
-    #     time.sleep(0.05)
-    #     pyautogui.typewrite(".")
-    #     time.sleep(0.05)
-    #     pyautogui.press("enter")
-    #     time.sleep(0.05)
-    #     GENERATE_GOLD_DATA["is_search_active"] = True
 
     pyautogui.hotkey("ctrl", "f")
     time.sleep(0.01)
