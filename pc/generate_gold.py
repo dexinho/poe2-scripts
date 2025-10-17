@@ -13,7 +13,7 @@ from utility.focus_game import focus_game
 from utility.open_object import open_stash, open_npc_shop
 from utility.wait_for import wait_for
 from utility.inventory_management import from_inventory, select_currency
-from utility.stash_management import locate_currency_tab_currency, open_stash_tab
+from utility.stash_management import locate_currency_from_currency_tab, open_stash_tab
 from utility.poe2_main import start_poe2, character_active
 from utility.errors import PoeCharacterNotActive, PoeCharacterBugged
 
@@ -33,7 +33,7 @@ def handle_omen_of_bartering():
         open_stash_tab(GENERATE_GOLD_DATA["gold_tab_slot_position"])
 
     currency_res = wait_for(
-        locate_currency_tab_currency,
+        locate_currency_from_currency_tab,
         "omen of bartering",
         wait_attempt_threshold=25,
         delay=0.02,
@@ -110,7 +110,7 @@ def buy_items_from_gwennen(item_purchase_quantity):
 
 def use_currency(currency_name):
     wait_for(
-        locate_currency_tab_currency,
+        locate_currency_from_currency_tab,
         currency_name,
         wait_attempt_threshold=25,
         delay=0.02,

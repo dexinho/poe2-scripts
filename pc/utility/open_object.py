@@ -53,7 +53,7 @@ def open_npc_shop(npc):
     if npc_logo_res["is_found"]:
         return npc_logo_res
 
-    # somepyautoguis it struggles to find logo, this is backup that fixes it
+    # sometimes pyautogui struggles to find logo, this is backup that fixes it
     if not npc_name == "gwennen":
         return None
 

@@ -11,12 +11,12 @@ from utility.locate_image import locate_image
 from utility.move_item import move_item
 
 
-def locate_currency_tab_currency(currency_name):
+def locate_currency_from_currency_tab(currency_name):
     pyautogui.hotkey("ctrl", "f")
     pyautogui.sleep(0.02)
     pyautogui.typewrite(f"^{currency_name}$")
     pyautogui.sleep(0.02)
-
+    
     image_res = locate_image(
         folder_path=FOLDER_PATHS["assets"]["images"]["stash"]["tabs"]["currency"],
         image_name=IMAGE_NAMES["stash"]["tabs"]["currency"]["highlight"],
@@ -45,6 +45,6 @@ def open_stash_tab(tab_slot_position):
 
 
 def from_currency_tab(currency_name):
-    currency_position = locate_currency_tab_currency(currency_name)
+    currency_position = locate_currency_from_currency_tab(currency_name)
 
     move_item(currency_position)
