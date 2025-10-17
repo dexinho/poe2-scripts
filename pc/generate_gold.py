@@ -14,7 +14,7 @@ from utility.open_object import open_stash, open_npc_shop
 from utility.wait_for import wait_for
 from utility.inventory_management import from_inventory, select_currency
 from utility.stash_management import locate_currency_from_currency_tab, open_stash_tab
-from utility.poe2_main import start_poe2, character_active
+from pc.utility.main import start_poe2, character_active
 from utility.errors import PoeCharacterNotActive, PoeCharacterBugged
 
 pyautogui.PAUSE = 0
