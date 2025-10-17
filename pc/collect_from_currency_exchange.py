@@ -1,5 +1,4 @@
 import pyautogui
-import time
 from utility.config import (
     STARTING_POSITIONS,
     IMAGE_NAMES,
@@ -49,30 +48,30 @@ def from_currency_exchange():
         completed_order_position[1] + currency_exchange_order_pixel_size[1] / 2,
     )
 
-    time.sleep(0.02)
+    pyautogui.sleep(0.01)
     pyautogui.moveTo(buying_currency_slot)
-    time.sleep(0.02)
+    pyautogui.sleep(0.01)
     pyautogui.keyDown("ctrl")
-    time.sleep(0.02)
+    pyautogui.sleep(0.01)
     pyautogui.rightClick()
-    time.sleep(0.02)
+    pyautogui.sleep(0.01)
     pyautogui.moveTo(selling_currency_slot)
-    time.sleep(0.02)
+    pyautogui.sleep(0.01)
     pyautogui.rightClick()
-    time.sleep(0.02)
+    pyautogui.sleep(0.01)
     pyautogui.keyUp("ctrl")
-    time.sleep(0.5)
+    pyautogui.sleep(0.01)
 
 
 def open_currency_exchange():
     pyautogui.moveTo(STARTING_POSITIONS["npcs"]["ange"]["position"])
-    time.sleep(0.05)
+    pyautogui.sleep(0.01)
     pyautogui.keyDown("ctrl")
-    time.sleep(0.05)
+    pyautogui.sleep(0.01)
     pyautogui.click()
-    time.sleep(0.05)
+    pyautogui.sleep(0.01)
     pyautogui.keyUp("ctrl")
-    time.sleep(0.2)
+    pyautogui.sleep(0.15)
 
     image_res = locate_image(
         region=REGIONS["npcs"]["ange"]["currency_exchange"]["logo"],
@@ -83,24 +82,24 @@ def open_currency_exchange():
     )
 
     if image_res["is_found"]:
-        return True
+        return image_res
 
-    return False
+    return None
 
 
 def collect_from_currency_exchange():
     focus_game()
     while True:
-        wait_for(open_currency_exchange)
+        wait_for(open_currency_exchange, wait_attempt_threshold=100, delay=0.02)
         from_currency_exchange()
         pyautogui.press("esc")
-        time.sleep(0.05)
+        pyautogui.sleep(0.01)
         pyautogui.press("esc")
-        time.sleep(0.05)
-        wait_for(open_stash)
+        pyautogui.sleep(0.01)
+        wait_for(open_stash, wait_attempt_threshold=100, delay=0.02)
         from_inventory(full_inv_at_once=True)
         pyautogui.press("esc")
-        time.sleep(0.1)
+        pyautogui.sleep(0.01)
 
 
 collect_from_currency_exchange()

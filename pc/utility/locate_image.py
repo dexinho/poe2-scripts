@@ -1,6 +1,5 @@
 import pyautogui
 import os
-import time
 
 from utility.config import DISPLAY_SETTINGS
 
@@ -17,7 +16,7 @@ def locate_image(
     ),
 ):
     pyautogui.moveTo(3, 3)
-    time.sleep(0.01)
+    pyautogui.sleep(0.01)
 
     image_path = os.path.join(folder_path, image_name)
 

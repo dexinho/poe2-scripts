@@ -1,10 +1,21 @@
-import time
-from utility.errors import PoeNotActiveError
+import pyautogui
+from utility.errors import PoeCharacterNotActive, PoeCharacterBugged
 
 
-def wait_for(callback, *args, wait_threshold=100, delay=0.1):
-    for attempt in range(wait_threshold):
+def wait_for(callback, *args, wait_attempt_threshold=10, delay=1):
+    from utility.poe2_main import character_active
+    for wait_attempt in range(wait_attempt_threshold):
+        if wait_attempt > 0:
+            print(f"Waiting attempt: {wait_attempt}")
         if callback(*args):
             return True
-        time.sleep(delay)
-    raise PoeNotActiveError(f"Timeout waiting for {callback.__name__}")
+        pyautogui.sleep(delay)
+
+    if character_active():
+        raise PoeCharacterBugged(
+            f"Timeout waiting for {callback.__name__}. Character bugged."
+        )
+
+    raise PoeCharacterNotActive(
+        f"Timeout waiting for {callback.__name__}. Character not active."
+    )

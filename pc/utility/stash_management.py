@@ -1,5 +1,4 @@
 import pyautogui
-import time
 
 from utility.config import (
     FOLDER_PATHS,
@@ -13,14 +12,10 @@ from utility.move_item import move_item
 
 
 def locate_currency_tab_currency(currency_name):
-    pyautogui.keyDown("ctrl")
-    time.sleep(0.02)
-    pyautogui.press("f")
-    time.sleep(0.02)
-    pyautogui.keyUp("ctrl")
-    time.sleep(0.02)
+    pyautogui.hotkey("ctrl", "f")
+    pyautogui.sleep(0.02)
     pyautogui.typewrite(f"^{currency_name}$")
-    time.sleep(0.02)
+    pyautogui.sleep(0.02)
 
     image_res = locate_image(
         folder_path=FOLDER_PATHS["assets"]["images"]["stash"]["tabs"]["currency"],
@@ -31,10 +26,10 @@ def locate_currency_tab_currency(currency_name):
 
     if image_res["is_found"]:
         pyautogui.moveTo(image_res["position"])
-        time.sleep(0.02)
+        pyautogui.sleep(0.02)
         return image_res
 
-    return False
+    return None
 
 
 def open_stash_tab(tab_slot_position):
@@ -44,9 +39,9 @@ def open_stash_tab(tab_slot_position):
         + PIXEL_SIZES["stash"]["tab"][1] * tab_slot_position
     )
     pyautogui.moveTo(x, y)
-    time.sleep(0.1)
+    pyautogui.sleep(0.1)
     pyautogui.click()
-    time.sleep(1)
+    pyautogui.sleep(1)
 
 
 def from_currency_tab(currency_name):

@@ -1,5 +1,4 @@
 import pyautogui
-import time
 import keyboard
 from utility.config import IMAGE_NAMES, FOLDER_PATHS, REGIONS
 from utility.locate_image import locate_image
@@ -16,12 +15,12 @@ def click_login():
 
     if image_res["is_found"]:
         pyautogui.moveTo(image_res["position"])
-        time.sleep(0.1)
+        pyautogui.sleep(0.1)
         pyautogui.click()
-        time.sleep(0.1)
+        pyautogui.sleep(0.1)
         return image_res
 
-    return False
+    return None
 
 
 def click_play():
@@ -34,12 +33,12 @@ def click_play():
 
     if image_res["is_found"]:
         pyautogui.moveTo(image_res["position"])
-        time.sleep(0.1)
+        pyautogui.sleep(0.1)
         pyautogui.click()
-        time.sleep(0.1)
+        pyautogui.sleep(0.1)
         return image_res
 
-    return False
+    return None
 
 
 def character_active():
@@ -53,7 +52,7 @@ def character_active():
     if image_res["is_found"]:
         return image_res
 
-    return False
+    return None
 
 
 def click_icon():
@@ -64,18 +63,18 @@ def click_icon():
 
     if image_res["is_found"]:
         pyautogui.moveTo(1, 1)
-        time.sleep(0.1)
+        pyautogui.sleep(0.1)
         pyautogui.click()
-        time.sleep(0.1)
+        pyautogui.sleep(0.1)
         pyautogui.moveTo(image_res["position"])
-        time.sleep(0.5)
+        pyautogui.sleep(0.5)
         pyautogui.click()
-        time.sleep(0.5)
+        pyautogui.sleep(0.5)
         pyautogui.press("enter")
-        time.sleep(0.5)
+        pyautogui.sleep(0.5)
         return image_res
 
-    return False
+    return None
 
 
 def start_poe2(max_retries=10):
@@ -86,12 +85,12 @@ def start_poe2(max_retries=10):
             if not click_icon():
                 print("Icon not found, switching desktop...")
                 keyboard.press_and_release("windows+d")
-                time.sleep(1)
+                pyautogui.sleep(1)
                 continue
 
-            wait_for(click_login, wait_threshold=60)
-            wait_for(click_play, wait_threshold=20)
-            wait_for(character_active, wait_threshold=30)
+            wait_for(click_login, wait_attempt_threshold=60)
+            wait_for(click_play, wait_attempt_threshold=20)
+            wait_for(character_active, wait_attempt_threshold=30)
 
             print("PoE2 started successfully.")
             return True

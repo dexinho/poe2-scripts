@@ -1,3 +1,6 @@
-class PoeNotActiveError(Exception):
+class PoeCharacterNotActive(Exception):
+    pass
+
+class PoeCharacterBugged(Exception):
     pass
 

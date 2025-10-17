@@ -80,6 +80,7 @@ IMAGE_NAMES = {
                 "item_craft_window": "item_craft_window.png",
                 "item_highlight": "item_highlight.png",
                 "logo": "logo.png",
+                "refresh_shop_button": "refresh_shop_button.png",
             }
         },
         "ange": {
@@ -157,6 +158,7 @@ REGIONS = {
         "gwennen": {
             "deal": {
                 "exit_button": (930, 180, 50, 50),
+                "refresh_shop_button": (920, 855, 50, 50),
                 "item_craft_window": (590, 360, 50, 50),
                 "area": (300, 270, 640, 640),
                 "logo": (620, 180, 20, 20),
@@ -201,9 +203,10 @@ HIDEOUT_OWNERS = {
 total_items_bought = 0
 item_purchase_quantity = 7
 refresh_shop_trehshold = item_purchase_quantity * 2
-hideout_refresh_treshold = refresh_shop_trehshold * 150
+hideout_refresh_treshold = refresh_shop_trehshold * 100
 
 GENERATE_GOLD_DATA = {
+    "action_delay": 0.0102,
     "is_characater_active": False,
     "is_search_active": False,
     "is_hideout_changed": False,

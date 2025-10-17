@@ -4,17 +4,16 @@ from utility.focus_game import focus_game
 from utility.enter_hideout import enter_hideout
 from utility.move_item import move_item
 import pyautogui
-import time
 
 pyautogui.FAILSAFE = False
 
 
 def join_hideout(owner_name=""):
-    time.sleep(0.1)
+    pyautogui.sleep(0.1)
     pyautogui.press("enter")
-    time.sleep(0.1)
+    pyautogui.sleep(0.1)
     pyautogui.typewrite(f"/hideout {owner_name}")
-    time.sleep(0.1)
+    pyautogui.sleep(0.1)
     pyautogui.press("enter")
 
 
@@ -37,7 +36,7 @@ def snipe_item(region, folder, image_name):
 
 def auto_buy():
     focus_game()
-    last_join = time.time()
+    last_join = pyautogui.pyautogui()
 
     owners = list(HIDEOUT_OWNERS.keys())
     idx = 0
@@ -45,17 +44,17 @@ def auto_buy():
 
     while True:
 
-        if time.time() - last_join >= delay_seconds:
+        if pyautogui.pyautogui() - last_join >= delay_seconds:
             focus_game()
             owner = owners[idx]
             join_hideout(owner)
 
             idx = (idx + 1) % len(owners)
-            last_join = time.time()
+            last_join = pyautogui.pyautogui()
 
         is_merchant_found = locate_merchant()
         if not is_merchant_found:
-            time.sleep(0.20)
+            pyautogui.sleep(0.20)
             continue
 
         for key in IMAGE_NAMES["items"]:

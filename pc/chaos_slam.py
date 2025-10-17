@@ -1,5 +1,4 @@
 import pyautogui
-import time
 from utility.config import REGIONS, FOLDER_PATHS, IMAGE_NAMES, STARTING_POSITIONS
 from utility.inventory_management import select_currency
 from utility.locate_image import locate_image
@@ -9,13 +8,13 @@ pyautogui.PAUSE = 0.005
 
 def highlight_items(item_name):
     pyautogui.keyDown("ctrl")
-    time.sleep(0.05)
+    pyautogui.sleep(0.05)
     pyautogui.press("f")
-    time.sleep(0.05)
+    pyautogui.sleep(0.05)
     pyautogui.keyUp("ctrl")
-    time.sleep(0.05)
+    pyautogui.sleep(0.05)
     pyautogui.typewrite(item_name)
-    time.sleep(0.05)
+    pyautogui.sleep(0.05)
 
 
 def craft_result():
@@ -28,7 +27,7 @@ def craft_result():
     print(image_res["is_found"])
 
     if image_res["is_found"]:
-        return True
+        return image_res
 
 
 def select_chaos_orb():
@@ -42,22 +41,22 @@ def chaos_slam():
     if not chaos_orb_selected:
         return
 
-    highlight_items("light")
+    highlight_items("cold")
     pyautogui.keyDown("shift")
-    time.sleep(0.05)
+    pyautogui.sleep(0.05)
 
     while True:
         pyautogui.moveTo(
             STARTING_POSITIONS["stash"]["tabs"]["currency"]["extra_middle_slot"]
         )
-        time.sleep(0.02)
+        pyautogui.sleep(0.02)
         pyautogui.click()
-        time.sleep(0.25)
+        pyautogui.sleep(0.25)
         is_craft_successful = craft_result()
 
         if is_craft_successful:
             pyautogui.keyUp("shift")
-            time.sleep(0.05)
+            pyautogui.sleep(0.05)
             break
 
 
