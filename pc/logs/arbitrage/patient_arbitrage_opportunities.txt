@@ -1,0 +1,118 @@
+ROI: 682.25%
+PROFIT: 6.8225 Exalted Orb
+PATH:
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
+	- Chaos Orb -> Uncut Support Gem (Level 5) (1 Chaos Orb -> 0.374532 Uncut Support Gem (Level 5))
+	- Uncut Support Gem (Level 5) -> Exalted Orb (1 Uncut Support Gem (Level 5) -> 11.800000 Exalted Orb)
+
+
+ROI: 128.57%
+PROFIT: 1.2857 Exalted Orb
+PATH:
+	- Exalted Orb -> Blacksmith's Whetstone (1 Exalted Orb -> 6.000000 Blacksmith's Whetstone)
+	- Blacksmith's Whetstone -> Chaos Orb (1 Blacksmith's Whetstone -> 0.666667 Chaos Orb)
+	- Chaos Orb -> Exalted Orb (1 Chaos Orb -> 0.571429 Exalted Orb)
+
+
+ROI: 88.06%
+PROFIT: 0.8806 Exalted Orb
+PATH:
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
+	- Chaos Orb -> Preserved Collarbone (1 Chaos Orb -> 0.041667 Preserved Collarbone)
+	- Preserved Collarbone -> Exalted Orb (1 Preserved Collarbone -> 25.500000 Exalted Orb)
+
+
+ROI: 67.14%
+PROFIT: 0.6714 Exalted Orb
+PATH:
+	- Exalted Orb -> Vaal Orb (1 Exalted Orb -> 1.300000 Vaal Orb)
+	- Vaal Orb -> Chaos Orb (1 Vaal Orb -> 2.250000 Chaos Orb)
+	- Chaos Orb -> Exalted Orb (1 Chaos Orb -> 0.571429 Exalted Orb)
+
+
+ROI: 57.33%
+PROFIT: 0.5733 Orb of Chance
+PATH:
+	- Orb of Chance -> Exalted Orb (1 Orb of Chance -> 12.000000 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
+	- Chaos Orb -> Orb of Chance (1 Chaos Orb -> 0.074074 Orb of Chance)
+
+
+ROI: 54.88%
+PROFIT: 0.5488 Exalted Orb
+PATH:
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
+	- Chaos Orb -> Artificer's Orb (1 Chaos Orb -> 3.500000 Artificer's Orb)
+	- Artificer's Orb -> Exalted Orb (1 Artificer's Orb -> 0.250000 Exalted Orb)
+
+
+ROI: 42.94%
+PROFIT: 0.4294 Exalted Orb
+PATH:
+	- Exalted Orb -> Greater Jeweller's Orb (1 Exalted Orb -> 0.300300 Greater Jeweller's Orb)
+	- Greater Jeweller's Orb -> Chaos Orb (1 Greater Jeweller's Orb -> 8.330000 Chaos Orb)
+	- Chaos Orb -> Exalted Orb (1 Chaos Orb -> 0.571429 Exalted Orb)
+
+
+ROI: 37.56%
+PROFIT: 0.3756 Exalted Orb
+PATH:
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
+	- Chaos Orb -> Armourer's Scrap (1 Chaos Orb -> 1.500000 Armourer's Scrap)
+	- Armourer's Scrap -> Exalted Orb (1 Armourer's Scrap -> 0.518135 Exalted Orb)
+
+
+ROI: 32.75%
+PROFIT: 0.3275 Exalted Orb
+PATH:
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
+	- Chaos Orb -> Regal Orb (1 Chaos Orb -> 3.000000 Regal Orb)
+	- Regal Orb -> Exalted Orb (1 Regal Orb -> 0.250000 Exalted Orb)
+
+
+ROI: 32.22%
+PROFIT: 0.3222 Exalted Orb
+PATH:
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
+	- Chaos Orb -> Perfect Jeweller's Orb (1 Chaos Orb -> 0.012048 Perfect Jeweller's Orb)
+	- Perfect Jeweller's Orb -> Exalted Orb (1 Perfect Jeweller's Orb -> 62.000000 Exalted Orb)
+
+
+ROI: 19.08%
+PROFIT: 0.1908 Exalted Orb
+PATH:
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
+	- Chaos Orb -> Divine Orb (1 Chaos Orb -> 0.011628 Divine Orb)
+	- Divine Orb -> Exalted Orb (1 Divine Orb -> 57.860000 Exalted Orb)
+
+
+ROI: 11.64%
+PROFIT: 0.1164 Exalted Orb
+PATH:
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
+	- Chaos Orb -> Preserved Rib (1 Chaos Orb -> 0.071429 Preserved Rib)
+	- Preserved Rib -> Exalted Orb (1 Preserved Rib -> 8.830000 Exalted Orb)
+
+
+ROI: 4.12%
+PROFIT: 0.0412 Exalted Orb
+PATH:
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
+	- Chaos Orb -> Gemcutter's Prism (1 Chaos Orb -> 0.294118 Gemcutter's Prism)
+	- Gemcutter's Prism -> Exalted Orb (1 Gemcutter's Prism -> 2.000000 Exalted Orb)
+
+
+ROI: 3.81%
+PROFIT: 0.0381 Exalted Orb
+PATH:
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
+	- Chaos Orb -> Orb of Alchemy (1 Chaos Orb -> 0.645161 Orb of Alchemy)
+	- Orb of Alchemy -> Exalted Orb (1 Orb of Alchemy -> 0.909091 Exalted Orb)
+
+
+ROI: 0.30%
+PROFIT: 0.0030 Exalted Orb
+PATH:
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
+	- Chaos Orb -> Greater Exalted Orb (1 Chaos Orb -> 0.066667 Greater Exalted Orb)
+	- Greater Exalted Orb -> Exalted Orb (1 Greater Exalted Orb -> 8.500000 Exalted Orb)

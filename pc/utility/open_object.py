@@ -7,27 +7,6 @@ from utility.config import (
     STARTING_POSITIONS,
 )
 
-
-def open_stash():
-    print(f"Opening stash...")
-    pyautogui.moveTo(STARTING_POSITIONS["stash"]["position"])
-    pyautogui.sleep(0.02)
-    pyautogui.click()
-    pyautogui.sleep(0.02)
-    pyautogui.click()
-    pyautogui.sleep(0.02)
-    image_res = locate_image(
-        region=REGIONS["stash"]["main"]["logo"],
-        folder_path=FOLDER_PATHS["assets"]["images"]["stash"]["main"],
-        image_name=IMAGE_NAMES["stash"]["main"]["logo"],
-    )
-
-    if image_res["is_found"]:
-        return image_res
-
-    return None
-
-
 def open_npc_shop(npc):
     npc_name = npc["name"]
     npc_option = npc["option"]

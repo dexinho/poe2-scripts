@@ -1,0 +1,46 @@
+ROI: 34.17%
+PROFIT: 0.3417 Exalted Orb
+PATH:
+	- instant convert Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.750000 Chaos Orb)
+	- instant convert Chaos Orb -> Orb of Chance (1 Chaos Orb -> 0.066667 Orb of Chance)
+	- instant convert Orb of Chance -> Exalted Orb (1 Orb of Chance -> 11.500000 Exalted Orb)
+
+
+ROI: 28.68%
+PROFIT: 0.2868 Exalted Orb
+PATH:
+	- instant convert Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.750000 Chaos Orb)
+	- instant convert Chaos Orb -> Preserved Collarbone (1 Chaos Orb -> 0.029412 Preserved Collarbone)
+	- instant convert Preserved Collarbone -> Exalted Orb (1 Preserved Collarbone -> 25.000000 Exalted Orb)
+
+
+ROI: 9.77%
+PROFIT: 0.0977 Exalted Orb
+PATH:
+	- instant convert Exalted Orb -> Greater Jeweller's Orb (1 Exalted Orb -> 0.285714 Greater Jeweller's Orb)
+	- instant convert Greater Jeweller's Orb -> Chaos Orb (1 Greater Jeweller's Orb -> 6.800000 Chaos Orb)
+	- instant convert Chaos Orb -> Exalted Orb (1 Chaos Orb -> 0.564972 Exalted Orb)
+
+
+ROI: 9.60%
+PROFIT: 0.0960 Exalted Orb
+PATH:
+	- instant convert Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.750000 Chaos Orb)
+	- instant convert Chaos Orb -> Perfect Jeweller's Orb (1 Chaos Orb -> 0.010101 Perfect Jeweller's Orb)
+	- instant convert Perfect Jeweller's Orb -> Exalted Orb (1 Perfect Jeweller's Orb -> 62.000000 Exalted Orb)
+
+
+ROI: 1.69%
+PROFIT: 0.0169 Exalted Orb
+PATH:
+	- instant convert Exalted Orb -> Vaal Orb (1 Exalted Orb -> 1.200000 Vaal Orb)
+	- instant convert Vaal Orb -> Chaos Orb (1 Vaal Orb -> 1.500000 Chaos Orb)
+	- instant convert Chaos Orb -> Exalted Orb (1 Chaos Orb -> 0.564972 Exalted Orb)
+
+
+ROI: 0.63%
+PROFIT: 0.0063 Exalted Orb
+PATH:
+	- instant convert Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.750000 Chaos Orb)
+	- instant convert Chaos Orb -> Divine Orb (1 Chaos Orb -> 0.010000 Divine Orb)
+	- instant convert Divine Orb -> Exalted Orb (1 Divine Orb -> 57.500000 Exalted Orb)

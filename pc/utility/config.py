@@ -32,7 +32,8 @@ FOLDER_PATHS = {
                     / "images"
                     / "stash"
                     / "tabs"
-                    / "currency"
+                    / "currency",
+                    "quad": BASE_PATH / "assets" / "images" / "stash" / "tabs" / "quad",
                 },
             },
             "npcs": {
@@ -57,7 +58,19 @@ FOLDER_PATHS = {
                     / "images"
                     / "npcs"
                     / "ange"
-                    / "currency_exchange"
+                    / "currency_exchange",
+                    "merchant": BASE_PATH
+                    / "assets"
+                    / "images"
+                    / "npcs"
+                    / "ange"
+                    / "merchant",
+                    "buy_or_sell_items": BASE_PATH
+                    / "assets"
+                    / "images"
+                    / "npcs"
+                    / "ange"
+                    / "buy_or_sell_items",
                 },
             },
         }
@@ -81,13 +94,24 @@ IMAGE_NAMES = {
                 "item_highlight": "item_highlight.png",
                 "logo": "logo.png",
                 "refresh_shop_button": "refresh_shop_button.png",
+                "purchase_window": "purchase_window.png",
+                "deal_window": "deal_window.png",
             }
         },
         "ange": {
             "currency_exchange": {
                 "order_completed": "order_completed.png",
                 "logo": "logo.png",
-            }
+            },
+            "merchant": {
+                "logo_buying": "logo_buying.png",
+                "empty_slot_selling": "empty_slot_selling.png",
+                "item_highlight_1": "item_highlight_1.png",
+                "item_highlight_2": "item_highlight_2.png",
+                "item_highlight_3": "item_highlight_3.png",
+                "item_highlight_4": "item_highlight_4.png",
+            },
+            "buy_or_sell_items": {"logo": "logo.png"},
         },
     },
     "inventory": {
@@ -98,52 +122,17 @@ IMAGE_NAMES = {
             "orb_of_chance": "orb_of_chance.png",
             "divine_orb": "divine_orb.png",
             "chaos_orb": "chaos_orb.png",
+            "omen_of_bartering": "omen_of_bartering.png",
         },
-    },
-    "items": {
-        "item_highlight": "item_highlight.png",
-        "item_highlight_2": "item_highlight_2.png",
-        "item_highlight_3": "item_highlight_3.png",
-        "item_highlight_4": "item_highlight_4.png",
-    },
-    "merchant": {
-        "logo": "merchant_logo.png",
-        "item_highlight": "item_highlight.png",
     },
     "loading": {"loading_screen": "loading_screen.png"},
     "craft": {"item_highlight": "item_highlight.png"},
     "stash": {
         "main": {"logo": "logo.png"},
-        "tabs": {"currency": {"highlight": "highlight.png"}},
-    },
-}
-
-STARTING_POSITIONS = {
-    "stash": {
-        "position": (1111, 377),
         "tabs": {
-            "first_slot": (750, 100),
-            "currency": {"extra_middle_slot": (330, 440)},
+            "currency": {"highlight": "highlight.png"},
+            "quad": {"highlight": "highlight.png", "empty_slot": "empty_slot.png"},
         },
-    },
-    "npcs": {
-        "gwennen": {
-            "position": (785, 333),
-            "buy_button": (625, 755),
-            "take_item_button": (450, 750),
-            "refresh_shop_button": (950, 880),
-        },
-        "doryani": {
-            "position": (975, 280),
-            "buy_button": (625, 755),
-            "take_item_button": (450, 750),
-        },
-        "ange": {
-            "position": (1200, 470),
-        },
-    },
-    "inventory": {
-        "first_slot": (1300, 615),
     },
 }
 
@@ -162,46 +151,98 @@ REGIONS = {
                 "item_craft_window": (590, 360, 50, 50),
                 "area": (300, 270, 640, 640),
                 "logo": (620, 180, 20, 20),
+                "deal_window": (618, 318, 20, 20),
+                "purchase_window": (618, 318, 20, 20),
             }
         },
         "ange": {
             "currency_exchange": {
                 "orders": (260, 370, 1030, 560),
                 "logo": (555, 165, 400, 20),
+                "market_ratio": (920, 230, 80, 18),
+                "i_want": (640, 220, 175, 40),
+                "i_have": (1140, 220, 175, 40),
+                "popular": (735, 175, 665, 185),
+                "tab_currency_text": (775, 180, 170, 35),
             },
+            "merchant": {
+                "area_buying": (305, 220, 640, 640),
+                "first_slot_selling": (35, 183, 15, 15),
+                "logo_buying": (622, 128, 10, 12),
+            },
+            "buy_or_sell_items": {"logo": (600, 180, 400, 20)},
         },
     },
     "stash": {
         "tabs": {
             "currency": {
                 "area": (15, 120, 650, 630),
-                "middle_extra_slot_area": (285, 360, 100, 170),
+                "middle_extra_slot_area": (290, 365, 20, 20),
                 "bottom_extra_slots_area": (120, 620, 340, 130),
-            }
+            },
+            "quad": {"area": (15, 120, 635, 640)},
         },
         "main": {"logo": (325, 5, 20, 20)},
     },
     "inventory": {"area": (1270, 590, 640, 260)},
-    "merchant": {"area": (305, 220, 640, 640), "logo": (622, 130, 8, 8)},
     "loading": {"loading_screen": (1250, 850, 300, 300)},
+}
+
+STARTING_POSITIONS = {
+    "stash": {
+        "position": (1110, 375),
+        "tabs": {
+            "first_slot": (750, 100),
+            "currency": {"extra_middle_slot": (330, 440)},
+            "quad": {"first_slot": (14, 125)},
+        },
+    },
+    "npcs": {
+        "gwennen": {
+            "position": (785, 333),
+            "buy_button": (625, 755),
+            "take_item_button": (450, 750),
+            "refresh_shop_button": (950, 880),
+            "area": {
+                "first_slot": (333, 300),
+            },
+        },
+        "doryani": {
+            "position": (975, 280),
+            "buy_button": (625, 755),
+            "take_item_button": (450, 750),
+        },
+        "ange": {
+            "position": (1200, 470),
+            "merchant": {"first_slot_selling": (40, 185)},
+            "buy_and_sell_items": {"area": (980, 560)},
+            "currency_exchange": {
+                "i_want": (710, 240),
+                "i_have": (1200, 240),
+                "found_currency": (820, 195),
+                "tabs": {"popular": (600, 205)},
+                "search_x_button": (1395, 112),
+            },
+        },
+    },
+    "inventory": {
+        "first_slot": (1300, 615),
+    },
 }
 
 PIXEL_SIZES = {
     "inventory": {"slot": (53, 53)},
-    "stash": {"tab": (130, 25)},
+    "stash": {"tab": (130, 24), "tabs": {"quad": {"slot": (26.25, 26.25)}}},
     "currency_exchange": {"slot": (53, 53), "order": (330, 100)},
 }
 
 HIDEOUT_OWNERS = {
-    "djumbircic": "shoreline hideout",
-    "muldrotha_gravetide": "limestone hideout",
-    "telroy": "shrine hideout",
-    "followwitch": "plateau of the gods hideout",
+    "korozijaroa": "shoreline hideout",
     "": "canal hideout",
 }
 
 total_items_bought = 0
-item_purchase_quantity = 7
+item_purchase_quantity = 13
 refresh_shop_trehshold = item_purchase_quantity * 2
 hideout_refresh_treshold = refresh_shop_trehshold * 100
 
@@ -217,5 +258,5 @@ GENERATE_GOLD_DATA = {
     "hideout_refresh_treshold": hideout_refresh_treshold,
     "hideout_owner_name": "djumbircic",
     "hideout_owner_name_backup": "telroy",
-    "gold_tab_slot_position": 1,
+    "gold_tab_slot_position": 0,
 }

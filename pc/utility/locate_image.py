@@ -8,6 +8,7 @@ def locate_image(
     folder_path,
     image_name,
     confidence=0.99,
+    constant_focus=True,
     region=(
         0,
         0,
@@ -15,8 +16,10 @@ def locate_image(
         DISPLAY_SETTINGS["reference_height"],
     ),
 ):
-    pyautogui.moveTo(3, 3)
-    pyautogui.sleep(0.01)
+
+    if constant_focus:
+        pyautogui.moveTo(3, 3)
+        pyautogui.sleep(0.01)
 
     image_path = os.path.join(folder_path, image_name)
 
