@@ -1,6 +1,6 @@
 import pyautogui
 from utility.text_from_image import (
-    read_text_from_image,
+    currency_exchange_text_from_image,
     clean_ocr_text,
     clean_ocr_numbers,
 )
@@ -69,7 +69,7 @@ def get_tab_currency_names():
                 region_width,
                 region_height,
             )
-            res = read_text_from_image(region=region)
+            res = currency_exchange_text_from_image(region=region)
 
             if not res:
                 continue
@@ -81,7 +81,7 @@ def get_tab_currency_names():
 
 
 def get_market_ratio():
-    res = read_text_from_image(
+    res = currency_exchange_text_from_image(
         region=REGIONS["npcs"]["ange"]["currency_exchange"]["market_ratio"],
         psm=7,
         fx=6,
@@ -105,14 +105,8 @@ def open_currency_side(side_type):
 
 def find_currency_in_currency_exchange(currency_name):
     print(f"finding {currency_name} in currency exchange...$")
-    pyautogui.keyDown("ctrl")
-    pyautogui.sleep(0.02)
-    pyautogui.press("f")
-    pyautogui.sleep(0.02)
-    pyautogui.keyUp("ctrl")
-    pyautogui.sleep(0.05)
     pyautogui.typewrite(currency_name)
-    pyautogui.sleep(0.25)
+    pyautogui.sleep(0.30)
 
     pyautogui.moveTo(
         STARTING_POSITIONS["npcs"]["ange"]["currency_exchange"]["found_currency"]

@@ -34,6 +34,12 @@ FOLDER_PATHS = {
                     / "tabs"
                     / "currency",
                     "quad": BASE_PATH / "assets" / "images" / "stash" / "tabs" / "quad",
+                    "basic": BASE_PATH
+                    / "assets"
+                    / "images"
+                    / "stash"
+                    / "tabs"
+                    / "basic",
                 },
             },
             "npcs": {
@@ -123,6 +129,10 @@ IMAGE_NAMES = {
             "divine_orb": "divine_orb.png",
             "chaos_orb": "chaos_orb.png",
             "omen_of_bartering": "omen_of_bartering.png",
+            "perfect_essence_of_the_infinite": "perfect_essence_of_the_infinite.png",
+            "preserved_collarbone": "preserved_collarbone.png",
+            "runic_alloy": "runic_alloy.png",
+            "perfect_essence_of_enhancment": "perfect_essence_of_enhancment.png",
         },
     },
     "loading": {"loading_screen": "loading_screen.png"},
@@ -130,8 +140,13 @@ IMAGE_NAMES = {
     "stash": {
         "main": {"logo": "logo.png"},
         "tabs": {
-            "currency": {"highlight": "highlight.png"},
+            "currency": {
+                "highlight": "highlight.png",
+                "middle_slot_highlight": "middle_slot_highlight.png",
+                "chaos_orb": "chaos_orb.png",
+            },
             "quad": {"highlight": "highlight.png", "empty_slot": "empty_slot.png"},
+            "basic": {"highlight": "highlight.png"},
         },
     },
 }
@@ -177,15 +192,19 @@ REGIONS = {
         "tabs": {
             "currency": {
                 "area": (15, 120, 650, 630),
-                "middle_extra_slot_area": (290, 365, 20, 20),
+                "middle_slot_area": (290, 365, 20, 20),
                 "bottom_extra_slots_area": (120, 620, 340, 130),
             },
             "quad": {"area": (15, 120, 635, 640)},
+            "basic": {"area": (12, 122, 645, 650)},
         },
         "main": {"logo": (325, 5, 20, 20)},
     },
     "inventory": {"area": (1270, 590, 640, 260)},
     "loading": {"loading_screen": (1250, 850, 300, 300)},
+    "desecrate": {
+        'options_area': (400, 610, 250, 200)
+    }
 }
 
 STARTING_POSITIONS = {
@@ -193,7 +212,7 @@ STARTING_POSITIONS = {
         "position": (1110, 375),
         "tabs": {
             "first_slot": (750, 100),
-            "currency": {"extra_middle_slot": (330, 440)},
+            "currency": {"middle_slot": (330, 440)},
             "quad": {"first_slot": (14, 125)},
         },
     },
@@ -227,6 +246,12 @@ STARTING_POSITIONS = {
     },
     "inventory": {
         "first_slot": (1300, 615),
+    },
+    "desecrate": {
+        "reveal_button": (625, 855),
+        "confirm_button": (625, 855),
+        "reroll_button": (870, 855),
+        'item_slot': (630, 460)
     },
 }
 

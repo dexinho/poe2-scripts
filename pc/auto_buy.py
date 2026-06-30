@@ -27,7 +27,7 @@ def locate_merchant_logo():
         folder_path=FOLDER_PATHS["assets"]["images"]["npcs"]["ange"]["merchant"],
         image_name=IMAGE_NAMES["npcs"]["ange"]["merchant"]["logo_buying"],
     )
-    return image_result["is_found"]
+    return image_result
 
 
 def snipe_item(region, folder_path, image_name):
@@ -35,7 +35,7 @@ def snipe_item(region, folder_path, image_name):
     image_result = locate_image(
         region=region, folder_path=folder_path, image_name=image_name
     )
-    if image_result["is_found"]:
+    if image_result:
         print(image_name, "found...")
         move_item(image_result["position"])
         pyautogui.sleep(0.5)
@@ -59,7 +59,7 @@ def find_highlighted_item():
             folder_path=FOLDER_PATHS["assets"]["images"]["npcs"]["ange"]["merchant"],
             image_name=IMAGE_NAMES["npcs"]["ange"]["merchant"][item_highlight],
         )
-        if image_result["is_found"]:
+        if image_result:
             return True
 
     return None
@@ -71,7 +71,7 @@ def auto_buy():
 
     hideout_owner_names = list(HIDEOUT_OWNERS.keys())
     idx = 0
-    max_items_to_buy = 40
+    max_items_to_buy = 20
     delay_seconds = 120
     items_bought = 0
 
@@ -79,7 +79,7 @@ def auto_buy():
         try:
             if items_bought >= max_items_to_buy:
                 print(f"Purchased {items_bought} items. Ending script.")
-                exit()
+                return items_bought
 
             if time.time() - last_join >= delay_seconds:
                 focus_game()

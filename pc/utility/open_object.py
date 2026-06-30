@@ -29,7 +29,7 @@ def open_npc_shop(npc):
         image_name=IMAGE_NAMES["npcs"][npc_name][npc_option]["logo"],
     )
 
-    if npc_logo_res["is_found"]:
+    if npc_logo_res:
         return npc_logo_res
 
     # sometimes pyautogui struggles to find logo, this is backup that fixes it
@@ -43,7 +43,7 @@ def open_npc_shop(npc):
         confidence=0.85,
     )
 
-    if refresh_shop_res["is_found"]:
+    if refresh_shop_res:
         pyautogui.moveTo(refresh_shop_res)
         pyautogui.sleep(0.1)
         pyautogui.click()

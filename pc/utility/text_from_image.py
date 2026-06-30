@@ -3,13 +3,24 @@ import numpy as np
 import cv2
 import pytesseract
 import re
+from PIL import Image
 
 from utility.config import DISPLAY_SETTINGS
 
 sct = mss.mss()
 
 
-def read_text_from_image(
+def read_text_from_image(region):
+    with mss.MSS() as sct:
+        screenshot = sct.grab(region)
+
+        img = Image.frombytes("RGB", screenshot.size, screenshot.bgra, "raw", "BGRX")
+
+        text = pytesseract.image_to_string(img)
+        return text
+
+
+def currency_exchange_text_from_image(
     region=(
         0,
         0,

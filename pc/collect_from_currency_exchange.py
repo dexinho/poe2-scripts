@@ -24,19 +24,18 @@ def locate_completed_order():
         region=REGIONS["npcs"]["ange"]["currency_exchange"]["orders"],
     )
 
-    if not image_res["is_found"]:
+    if not image_res:
         print(f"No completed orders!")
-        return None
-        # exit()
 
-    return image_res["position"]
+    return image_res
 
 
 def from_currency_exchange():
-    completed_order_position = locate_completed_order()
-    if not completed_order_position:
+    completed_order_res = locate_completed_order()
+    if not completed_order_res:
         return
 
+    completed_order_position = completed_order_res["position"]
     currency_exchange_order_pixel_size = PIXEL_SIZES["currency_exchange"]["order"]
     currency_exchange_slot_pixel_size = PIXEL_SIZES["currency_exchange"]["slot"]
     buying_currency_slot = (
@@ -81,7 +80,7 @@ def open_currency_exchange():
         image_name=IMAGE_NAMES["npcs"]["ange"]["currency_exchange"]["logo"],
     )
 
-    if image_res["is_found"]:
+    if image_res:
         print(f"Currency exchanged opened...")
         return image_res
 
@@ -102,11 +101,10 @@ def open_currency_exchange():
         image_name=IMAGE_NAMES["npcs"]["ange"]["currency_exchange"]["logo"],
     )
 
-    if image_res["is_found"]:
+    if image_res:
         print(f"Currency exchanged opened...")
-        return image_res
 
-    return None
+    return image_res
 
 
 def collect_from_currency_exchange():

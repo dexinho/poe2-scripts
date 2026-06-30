@@ -1,2 +1,7 @@
-import cv2
-print(cv2.__version__)
+import pyautogui
+
+def test():
+  print('running test script...')
+  pyautogui.sleep(5)
+  print('test script done...')
+  return True

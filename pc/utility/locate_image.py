@@ -31,4 +31,4 @@ def locate_image(
         return {"is_found": True, "position": (center.x, center.y)}
 
     except pyautogui.ImageNotFoundException:
-        return {"is_found": False, "position": None}
+        return None

@@ -20,7 +20,7 @@ def open_stash(is_open_check=True):
             image_name=IMAGE_NAMES["stash"]["main"]["logo"],
         )
 
-        if image_res["is_found"]:
+        if image_res:
             print(f"Stash opened...")
             return image_res
 
@@ -36,7 +36,7 @@ def open_stash(is_open_check=True):
         image_name=IMAGE_NAMES["stash"]["main"]["logo"],
     )
 
-    if image_res["is_found"]:
+    if image_res:
         print(f"Stash opened...")
         return image_res
 
@@ -51,28 +51,33 @@ def highlight_items(item_name="."):
     pyautogui.keyUp("ctrl")
     pyautogui.sleep(0.02)
     pyautogui.typewrite(item_name)
-    pyautogui.sleep(0.05)
+    pyautogui.sleep(0.2)
 
 
-def locate_currency_in_currency_tab(currency_name):
-    pyautogui.hotkey("ctrl", "f")
-    pyautogui.sleep(0.02)
-    pyautogui.typewrite(f"^{currency_name}$")
-    pyautogui.sleep(0.02)
+def locate_currency_in_currency_tab(currency_name, by_image, by_text):
 
-    image_res = locate_image(
-        folder_path=FOLDER_PATHS["assets"]["images"]["stash"]["tabs"]["currency"],
-        image_name=IMAGE_NAMES["stash"]["tabs"]["currency"]["highlight"],
-        region=REGIONS["stash"]["tabs"]["currency"]["area"],
-        confidence=0.95,
-    )
+    if by_image:
+        modified_currency_name = currency_name.replace(" ", "_")
+        image_res = locate_image(
+            folder_path=FOLDER_PATHS["assets"]["images"]["stash"]["tabs"]["currency"],
+            image_name=IMAGE_NAMES["stash"]["tabs"]["currency"][modified_currency_name],
+            region=REGIONS["stash"]["tabs"]["currency"]["area"],
+            confidence=0.9,
+        )
 
-    if image_res["is_found"]:
-        pyautogui.moveTo(image_res["position"])
+    if by_text:
+        pyautogui.hotkey("ctrl", "f")
         pyautogui.sleep(0.02)
-        return image_res
+        pyautogui.typewrite(f"^{currency_name}$")
+        pyautogui.sleep(0.02)
+        image_res = locate_image(
+            folder_path=FOLDER_PATHS["assets"]["images"]["stash"]["tabs"]["currency"],
+            image_name=IMAGE_NAMES["stash"]["tabs"]["currency"]["highlight"],
+            region=REGIONS["stash"]["tabs"]["currency"]["area"],
+            confidence=0.9,
+        )
 
-    return None
+    return image_res
 
 
 def select_stash_tab(tab_position, slow_load=True):

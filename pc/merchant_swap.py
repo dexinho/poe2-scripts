@@ -71,7 +71,7 @@ def merchant_swap(option):
             while True:
                 move_items_from_inventory()
 
-        res = locate_image(
+        image_res = locate_image(
             region=second_row_second_col,
             image_name=IMAGE_NAMES["npcs"]["ange"]["merchant"]["empty_slot_selling"],
             folder_path=FOLDER_PATHS["assets"]["images"]["npcs"]["ange"]["merchant"],
@@ -79,7 +79,7 @@ def merchant_swap(option):
             constant_focus=False,
         )
 
-        if res["is_found"]:
+        if image_res:
 
             while True:
                 move_items_from_inventory()

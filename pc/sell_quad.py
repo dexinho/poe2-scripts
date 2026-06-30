@@ -35,7 +35,7 @@ def quick_open_stash_and_npc(npc_name="ange"):
     pyautogui.keyUp("alt")
     pyautogui.sleep(0.2)
 
-    npc_res = locate_image(
+    image_res = locate_image(
         folder_path=FOLDER_PATHS["assets"]["images"]["npcs"]["ange"][
             "buy_or_sell_items"
         ],
@@ -46,10 +46,7 @@ def quick_open_stash_and_npc(npc_name="ange"):
 
     print(npc_res)
 
-    if npc_res["is_found"]:
-        return True
-
-    return None
+    return image_res
 
 
 def locate_highlighted_item():
@@ -66,7 +63,7 @@ def locate_highlighted_item():
 def get_omen_of_bartering(bartering_stack_quantity=11):
     bartering_res = locate_currency_in_currency_tab(currency_name="omen of bartering")
 
-    if bartering_res["is_found"]:
+    if bartering_res:
         pyautogui.moveTo(bartering_res["position"])
         pyautogui.sleep(0.02)
         pyautogui.keyDown("ctrl")
@@ -76,6 +73,8 @@ def get_omen_of_bartering(bartering_stack_quantity=11):
         pyautogui.keyUp("ctrl")
         pyautogui.sleep(0.02)
         return True
+    
+    return None
 
 
 def select_omen_of_bartering(bartering_stack_quantity=11):
@@ -132,7 +131,7 @@ def from_stash_to_npc():
             )
             print(image_res)
 
-            if not image_res["is_found"]:
+            if not image_res:
                 continue
 
             slot_offset = 5  # we are looking for highlighted outlines and we want to select slot more to the right
@@ -150,7 +149,7 @@ def from_stash_to_npc():
 
 def omen_of_bartering_to_stash_from_inventory():
     omen_of_bartering_location_res = locate_currency_in_inventory("omen of bartering")
-    if omen_of_bartering_location_res["is_found"]:
+    if omen_of_bartering_location_res:
         pyautogui.moveTo(omen_of_bartering_location_res["position"])
         pyautogui.sleep(0.02)
         pyautogui.keyDown("ctrl")
@@ -159,8 +158,10 @@ def omen_of_bartering_to_stash_from_inventory():
         pyautogui.sleep(0.02)
         pyautogui.keyUp("ctrl")
         pyautogui.sleep(0.02)
+        
+        return True
 
-    return True
+    return None
 
 
 def sell_item_to_npc(item_position):
@@ -206,15 +207,6 @@ def sell_quad(quad_tab_positions=[9], use_omen_of_bartering=None):
         highlight_items()
         wait_for(quick_open_stash_and_npc)
         from_stash_to_npc()
-
-        moving_items = True
-        # while moving_items:
-        # highlight_res = locate_highlighted_item()
-        # if highlight_res["is_found"]:
-
-        #     sell_item_to_npc(item_position=highlight_res["position"])
-        # else:
-        #     moving_items = False
 
 
 sell_quad(use_omen_of_bartering=True)

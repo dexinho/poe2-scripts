@@ -1,118 +1,166 @@
-ROI: 682.25%
-PROFIT: 6.8225 Exalted Orb
+ROI: 64822400.00%
+PROFIT: 648224.0000 Exalted Orb
 PATH:
-	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
-	- Chaos Orb -> Uncut Support Gem (Level 5) (1 Chaos Orb -> 0.374532 Uncut Support Gem (Level 5))
-	- Uncut Support Gem (Level 5) -> Exalted Orb (1 Uncut Support Gem (Level 5) -> 11.800000 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Perfect Chaos Orb (1 Chaos Orb -> 43.000000 Perfect Chaos Orb)
+	- Perfect Chaos Orb -> Exalted Orb (1 Perfect Chaos Orb -> 750.000000 Exalted Orb)
 
 
-ROI: 128.57%
-PROFIT: 1.2857 Exalted Orb
+ROI: 1265074.40%
+PROFIT: 12650.7440 Exalted Orb
 PATH:
-	- Exalted Orb -> Blacksmith's Whetstone (1 Exalted Orb -> 6.000000 Blacksmith's Whetstone)
-	- Blacksmith's Whetstone -> Chaos Orb (1 Blacksmith's Whetstone -> 0.666667 Chaos Orb)
-	- Chaos Orb -> Exalted Orb (1 Chaos Orb -> 0.571429 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Orb of Annulment (1 Chaos Orb -> 5.600000 Orb of Annulment)
+	- Orb of Annulment -> Exalted Orb (1 Orb of Annulment -> 112.400000 Exalted Orb)
 
 
-ROI: 88.06%
-PROFIT: 0.8806 Exalted Orb
+ROI: 47657.60%
+PROFIT: 476.5760 Exalted Orb
 PATH:
-	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
-	- Chaos Orb -> Preserved Collarbone (1 Chaos Orb -> 0.041667 Preserved Collarbone)
-	- Preserved Collarbone -> Exalted Orb (1 Preserved Collarbone -> 25.500000 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Vaal Orb (1 Chaos Orb -> 9.000000 Vaal Orb)
+	- Vaal Orb -> Exalted Orb (1 Vaal Orb -> 2.640000 Exalted Orb)
 
 
-ROI: 67.14%
-PROFIT: 0.6714 Exalted Orb
+ROI: 45125.00%
+PROFIT: 451.2500 Exalted Orb
 PATH:
-	- Exalted Orb -> Vaal Orb (1 Exalted Orb -> 1.300000 Vaal Orb)
-	- Vaal Orb -> Chaos Orb (1 Vaal Orb -> 2.250000 Chaos Orb)
-	- Chaos Orb -> Exalted Orb (1 Chaos Orb -> 0.571429 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Perfect Jeweller's Orb (1 Chaos Orb -> 0.250000 Perfect Jeweller's Orb)
+	- Perfect Jeweller's Orb -> Exalted Orb (1 Perfect Jeweller's Orb -> 90.000000 Exalted Orb)
 
 
-ROI: 57.33%
-PROFIT: 0.5733 Orb of Chance
+ROI: 43727.07%
+PROFIT: 437.2707 Exalted Orb
 PATH:
-	- Orb of Chance -> Exalted Orb (1 Orb of Chance -> 12.000000 Exalted Orb)
-	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
-	- Chaos Orb -> Orb of Chance (1 Chaos Orb -> 0.074074 Orb of Chance)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Greater Jeweller's Orb (1 Chaos Orb -> 29.000000 Greater Jeweller's Orb)
+	- Greater Jeweller's Orb -> Exalted Orb (1 Greater Jeweller's Orb -> 0.751880 Exalted Orb)
 
 
-ROI: 54.88%
-PROFIT: 0.5488 Exalted Orb
+ROI: 42464.71%
+PROFIT: 424.6471 Exalted Orb
 PATH:
-	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
-	- Chaos Orb -> Artificer's Orb (1 Chaos Orb -> 3.500000 Artificer's Orb)
-	- Artificer's Orb -> Exalted Orb (1 Artificer's Orb -> 0.250000 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Divine Orb (1 Chaos Orb -> 0.106952 Divine Orb)
+	- Divine Orb -> Exalted Orb (1 Divine Orb -> 198.000000 Exalted Orb)
 
 
-ROI: 42.94%
-PROFIT: 0.4294 Exalted Orb
+ROI: 42045.16%
+PROFIT: 420.4516 Exalted Orb
 PATH:
-	- Exalted Orb -> Greater Jeweller's Orb (1 Exalted Orb -> 0.300300 Greater Jeweller's Orb)
-	- Greater Jeweller's Orb -> Chaos Orb (1 Greater Jeweller's Orb -> 8.330000 Chaos Orb)
-	- Chaos Orb -> Exalted Orb (1 Chaos Orb -> 0.571429 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Omen of Sinistral Annulment (1 Chaos Orb -> 0.016129 Omen of Sinistral Annulment)
+	- Omen of Sinistral Annulment -> Exalted Orb (1 Omen of Sinistral Annulment -> 1300.000000 Exalted Orb)
 
 
-ROI: 37.56%
-PROFIT: 0.3756 Exalted Orb
+ROI: 40331.03%
+PROFIT: 403.3103 Exalted Orb
 PATH:
-	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
-	- Chaos Orb -> Armourer's Scrap (1 Chaos Orb -> 1.500000 Armourer's Scrap)
-	- Armourer's Scrap -> Exalted Orb (1 Armourer's Scrap -> 0.518135 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Ancient Jawbone (1 Chaos Orb -> 0.011494 Ancient Jawbone)
+	- Ancient Jawbone -> Exalted Orb (1 Ancient Jawbone -> 1750.000000 Exalted Orb)
 
 
-ROI: 32.75%
-PROFIT: 0.3275 Exalted Orb
+ROI: 40100.00%
+PROFIT: 401.0000 Exalted Orb
 PATH:
-	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
-	- Chaos Orb -> Regal Orb (1 Chaos Orb -> 3.000000 Regal Orb)
-	- Regal Orb -> Exalted Orb (1 Regal Orb -> 0.250000 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Fracturing Orb (1 Chaos Orb -> 0.029412 Fracturing Orb)
+	- Fracturing Orb -> Exalted Orb (1 Fracturing Orb -> 680.000000 Exalted Orb)
 
 
-ROI: 32.22%
-PROFIT: 0.3222 Exalted Orb
+ROI: 39768.94%
+PROFIT: 397.6894 Exalted Orb
 PATH:
-	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
-	- Chaos Orb -> Perfect Jeweller's Orb (1 Chaos Orb -> 0.012048 Perfect Jeweller's Orb)
-	- Perfect Jeweller's Orb -> Exalted Orb (1 Perfect Jeweller's Orb -> 62.000000 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Omen of Whittling (1 Chaos Orb -> 0.023529 Omen of Whittling)
+	- Omen of Whittling -> Exalted Orb (1 Omen of Whittling -> 843.000000 Exalted Orb)
 
 
-ROI: 19.08%
-PROFIT: 0.1908 Exalted Orb
+ROI: 39584.62%
+PROFIT: 395.8462 Exalted Orb
 PATH:
-	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
-	- Chaos Orb -> Divine Orb (1 Chaos Orb -> 0.011628 Divine Orb)
-	- Divine Orb -> Exalted Orb (1 Divine Orb -> 57.860000 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Omen of Dextral Erasure (1 Chaos Orb -> 0.025641 Omen of Dextral Erasure)
+	- Omen of Dextral Erasure -> Exalted Orb (1 Omen of Dextral Erasure -> 770.000000 Exalted Orb)
 
 
-ROI: 11.64%
-PROFIT: 0.1164 Exalted Orb
+ROI: 39157.81%
+PROFIT: 391.5781 Exalted Orb
 PATH:
-	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
-	- Chaos Orb -> Preserved Rib (1 Chaos Orb -> 0.071429 Preserved Rib)
-	- Preserved Rib -> Exalted Orb (1 Preserved Rib -> 8.830000 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Faded Crisis Fragment (1 Chaos Orb -> 0.031250 Faded Crisis Fragment)
+	- Faded Crisis Fragment -> Exalted Orb (1 Faded Crisis Fragment -> 625.000000 Exalted Orb)
 
 
-ROI: 4.12%
-PROFIT: 0.0412 Exalted Orb
+ROI: 38583.02%
+PROFIT: 385.8302 Exalted Orb
 PATH:
-	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
-	- Chaos Orb -> Gemcutter's Prism (1 Chaos Orb -> 0.294118 Gemcutter's Prism)
-	- Gemcutter's Prism -> Exalted Orb (1 Gemcutter's Prism -> 2.000000 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Perfect Exalted Orb (1 Chaos Orb -> 0.037736 Perfect Exalted Orb)
+	- Perfect Exalted Orb -> Exalted Orb (1 Perfect Exalted Orb -> 510.000000 Exalted Orb)
 
 
-ROI: 3.81%
-PROFIT: 0.0381 Exalted Orb
+ROI: 37447.92%
+PROFIT: 374.4792 Exalted Orb
 PATH:
-	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
-	- Chaos Orb -> Orb of Alchemy (1 Chaos Orb -> 0.645161 Orb of Alchemy)
-	- Orb of Alchemy -> Exalted Orb (1 Orb of Alchemy -> 0.909091 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Omen of Light (1 Chaos Orb -> 0.013889 Omen of Light)
+	- Omen of Light -> Exalted Orb (1 Omen of Light -> 1345.000000 Exalted Orb)
 
 
-ROI: 0.30%
-PROFIT: 0.0030 Exalted Orb
+ROI: 32452.70%
+PROFIT: 324.5270 Regal Orb
 PATH:
-	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 1.770000 Chaos Orb)
-	- Chaos Orb -> Greater Exalted Orb (1 Chaos Orb -> 0.066667 Greater Exalted Orb)
-	- Greater Exalted Orb -> Exalted Orb (1 Greater Exalted Orb -> 8.500000 Exalted Orb)
+	- Regal Orb -> Exalted Orb (1 Regal Orb -> 0.257069 Exalted Orb)
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Regal Orb (1 Chaos Orb -> 63.000000 Regal Orb)
+
+
+ROI: 25829.00%
+PROFIT: 258.2900 Exalted Orb
+PATH:
+	- Exalted Orb -> Chaos Orb (1 Exalted Orb -> 20.100000 Chaos Orb)
+	- Chaos Orb -> Gemcutter's Prism (1 Chaos Orb -> 10.000000 Gemcutter's Prism)
+	- Gemcutter's Prism -> Exalted Orb (1 Gemcutter's Prism -> 1.290000 Exalted Orb)
+
+
+ROI: 201.50%
+PROFIT: 2.0150 Exalted Orb
+PATH:
+	- Exalted Orb -> Blacksmith's Whetstone (1 Exalted Orb -> 3.300000 Blacksmith's Whetstone)
+	- Blacksmith's Whetstone -> Chaos Orb (1 Blacksmith's Whetstone -> 0.045455 Chaos Orb)
+	- Chaos Orb -> Exalted Orb (1 Chaos Orb -> 20.100000 Exalted Orb)
+
+
+ROI: 45.94%
+PROFIT: 0.4594 Exalted Orb
+PATH:
+	- Exalted Orb -> Orb of Alchemy (1 Exalted Orb -> 2.200000 Orb of Alchemy)
+	- Orb of Alchemy -> Chaos Orb (1 Orb of Alchemy -> 0.033003 Chaos Orb)
+	- Chaos Orb -> Exalted Orb (1 Chaos Orb -> 20.100000 Exalted Orb)
+
+
+ROI: 44.52%
+PROFIT: 0.4452 Exalted Orb
+PATH:
+	- Exalted Orb -> Armourer's Scrap (1 Exalted Orb -> 1.200000 Armourer's Scrap)
+	- Armourer's Scrap -> Chaos Orb (1 Armourer's Scrap -> 0.059916 Chaos Orb)
+	- Chaos Orb -> Exalted Orb (1 Chaos Orb -> 20.100000 Exalted Orb)
+
+
+ROI: 9.52%
+PROFIT: 0.0952 Exalted Orb
+PATH:
+	- Exalted Orb -> Greater Chaos Orb (1 Exalted Orb -> 0.018162 Greater Chaos Orb)
+	- Greater Chaos Orb -> Chaos Orb (1 Greater Chaos Orb -> 3.000000 Chaos Orb)
+	- Chaos Orb -> Exalted Orb (1 Chaos Orb -> 20.100000 Exalted Orb)
+
+
+ROI: 0.77%
+PROFIT: 0.0077 Exalted Orb
+PATH:
+	- Exalted Orb -> Omen of Abyssal Echoes (1 Exalted Orb -> 0.013514 Omen of Abyssal Echoes)
+	- Omen of Abyssal Echoes -> Chaos Orb (1 Omen of Abyssal Echoes -> 3.710000 Chaos Orb)
+	- Chaos Orb -> Exalted Orb (1 Chaos Orb -> 20.100000 Exalted Orb)

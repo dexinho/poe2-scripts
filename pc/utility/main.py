@@ -12,7 +12,7 @@ def click_icon():
         confidence=0.9
     )
     
-    if image_res["is_found"]:
+    if image_res:
         pyautogui.moveTo(1, 1)
         pyautogui.sleep(0.1)
         pyautogui.click()
@@ -36,7 +36,7 @@ def click_login():
         confidence=0.9,
     )
 
-    if image_res["is_found"]:
+    if image_res:
         # if disconnected/failed to connect to instance pops up
         pyautogui.moveTo(960, 565)
         pyautogui.sleep(0.1)
@@ -60,7 +60,7 @@ def click_play():
         confidence=0.9,
     )
 
-    if image_res["is_found"]:
+    if image_res:
         pyautogui.moveTo(image_res["position"])
         pyautogui.sleep(0.1)
         pyautogui.click()
@@ -78,10 +78,7 @@ def character_active():
         confidence=0.9,
     )
 
-    if image_res["is_found"]:
-        return image_res
-
-    return None
+    return image_res
 
 
 def enter_game(max_retries=100, delay=0.1):

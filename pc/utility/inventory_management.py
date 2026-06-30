@@ -45,6 +45,7 @@ def from_inventory(
         return True
 
     pyautogui.keyDown("ctrl")
+    pyautogui.sleep(0.05)
     for i in range(col_range[0], col_range[1], step):
         for j in range(row_range[0], row_range[1], step):
             pyautogui.moveTo(
@@ -53,9 +54,9 @@ def from_inventory(
                 STARTING_POSITIONS["inventory"]["first_slot"][1]
                 + PIXEL_SIZES["inventory"]["slot"][1] * j,
             )
-            pyautogui.sleep(0.01)
+            pyautogui.sleep(0.02)
             pyautogui.click()
-            pyautogui.sleep(0.01)
+            pyautogui.sleep(0.02)
 
     pyautogui.keyUp("ctrl")
     return True
@@ -64,25 +65,23 @@ def from_inventory(
 def select_currency_in_inventory(currency_name):
     image_res = locate_currency_in_inventory(currency_name)
 
-    if image_res["is_found"]:
+    if image_res:
         pyautogui.moveTo(image_res["position"])
-        pyautogui.sleep(0.02)
+        pyautogui.sleep(0.1)
         pyautogui.rightClick()
-        pyautogui.sleep(0.02)
+        pyautogui.sleep(0.1)
 
-        return image_res
-
-    return None
+    return image_res
 
 
 def locate_currency_in_inventory(currency_name):
-    print(f"Locating {currency_name} in inventory...")
+    # print(f"Locating {currency_name} in inventory...")
     fixed_currency_name = currency_name.replace(" ", "_")
     image_res = locate_image(
         folder_path=FOLDER_PATHS["assets"]["images"]["inventory"]["currencies"],
         image_name=IMAGE_NAMES["inventory"]["currencies"][fixed_currency_name],
         region=REGIONS["inventory"]["area"],
-        confidence=0.85,
+        confidence=0.80,
     )
 
     return image_res

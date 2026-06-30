@@ -101,12 +101,12 @@ def handle_purchase_window():
         constant_focus=False,
     )
 
-    if image_res["is_found"]:
+    if image_res:
         pyautogui.moveTo(STARTING_POSITIONS["npcs"]["gwennen"]["buy_button"])
         pyautogui.sleep(0.12)
         pyautogui.click()
 
-    return image_res["is_found"]
+    return image_res
 
 
 def handle_deal_window():
@@ -118,12 +118,12 @@ def handle_deal_window():
         constant_focus=False,
     )
 
-    if image_res["is_found"]:
+    if image_res:
         pyautogui.moveTo(STARTING_POSITIONS["npcs"]["gwennen"]["take_item_button"])
         pyautogui.sleep(0.12)
         pyautogui.click()
 
-    return image_res["is_found"]
+    return image_res
 
 
 def handle_prepare_item_for_purchase():
@@ -134,11 +134,11 @@ def handle_prepare_item_for_purchase():
         constant_focus=False,
     )
 
-    if image_res["is_found"]:
+    if image_res:
         move_item(image_res["position"])
         print("clicked on item to buy....")
 
-    return image_res["is_found"]
+    return image_res
 
 
 def buy_items_from_gwennen(item_purchase_quantity):
@@ -152,7 +152,7 @@ def buy_items_from_gwennen(item_purchase_quantity):
         constant_focus=False,
     )
 
-    if not image_res["is_found"]:
+    if not image_res:
         return {"items_bought_quantity": 0}
 
     for i in range(0, 5, 1):
@@ -187,7 +187,7 @@ def buy_items_from_gwennen(item_purchase_quantity):
 #             constant_focus=False,
 #         )
 
-#         if not image_res["is_found"]:
+#         if not image_res:
 #             break
 
 #         pyautogui.sleep(0.04)
@@ -259,15 +259,13 @@ def refesh_gwennen_shop():
         confidence=0.85,
     )
 
-    if refresh_shop_button_res["is_found"]:
+    if refresh_shop_button_res:
         pyautogui.moveTo(refresh_shop_button_res["position"])
         pyautogui.sleep(action_delay)
         pyautogui.click()
         pyautogui.sleep(0.1)
 
-        return refresh_shop_button_res
-
-    return None
+    return refresh_shop_button_res
 
 
 def is_gwennen_deal_window_open():
@@ -278,7 +276,7 @@ def is_gwennen_deal_window_open():
         confidence=0.90,
     )
 
-    return image_res["is_found"]
+    return image_res
 
 
 def modify_gwennen_items(modifier_currency):
