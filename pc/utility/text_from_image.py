@@ -11,8 +11,15 @@ sct = mss.mss()
 
 
 def read_text_from_image(region):
+    fixed_region = {
+        "left": region[0],
+        "top": region[1],
+        "width": region[2],
+        "height": region[3],
+    }
+
     with mss.MSS() as sct:
-        screenshot = sct.grab(region)
+        screenshot = sct.grab(fixed_region)
 
         img = Image.frombytes("RGB", screenshot.size, screenshot.bgra, "raw", "BGRX")
 

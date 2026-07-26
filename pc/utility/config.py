@@ -21,7 +21,9 @@ FOLDER_PATHS = {
                 / "inventory"
                 / "currencies"
             },
-            "craft": BASE_PATH / "assets" / "images" / "craft",
+            "crafts": {
+                "desecrate": BASE_PATH / "assets" / "images" / "crafts" / "desecrate",
+            },
             "items": BASE_PATH / "assets" / "images" / "items",
             "loading": BASE_PATH / "assets" / "images" / "loading",
             "stash": {
@@ -111,13 +113,18 @@ IMAGE_NAMES = {
             },
             "merchant": {
                 "logo_buying": "logo_buying.png",
+                "item_sold_notification_x_button": "item_sold_notification_x_button.png",
                 "empty_slot_selling": "empty_slot_selling.png",
                 "item_highlight_1": "item_highlight_1.png",
                 "item_highlight_2": "item_highlight_2.png",
                 "item_highlight_3": "item_highlight_3.png",
                 "item_highlight_4": "item_highlight_4.png",
             },
-            "buy_or_sell_items": {"logo": "logo.png"},
+            "buy_or_sell_items": {
+                "logo": "logo.png",
+                "gold_symbol_1": "gold_symbol_1.png",
+                "gold_symbol_2": "gold_symbol_2.png",
+            },
         },
     },
     "inventory": {
@@ -136,14 +143,23 @@ IMAGE_NAMES = {
         },
     },
     "loading": {"loading_screen": "loading_screen.png"},
-    "craft": {"item_highlight": "item_highlight.png"},
+    "crafts": {
+        "item_highlight": "item_highlight.png",
+        "desecrate": {
+            "desecrated_modifiers_tooltip_popup": "desecrated_modifiers_tooltip_popup.png",
+            "third_choice_bottom_right_corner": "third_choice_bottom_right_corner.png",
+        },
+    },
     "stash": {
         "main": {"logo": "logo.png"},
         "tabs": {
             "currency": {
                 "highlight": "highlight.png",
                 "middle_slot_highlight": "middle_slot_highlight.png",
+                "middle_slot_empty": "middle_slot_empty.png",
                 "chaos_orb": "chaos_orb.png",
+                "vaal_catalysing_infuser": "vaal_catalysing_infuser.png",
+                "sibilant_catalyst": "sibilant_catalyst.png",
             },
             "quad": {"highlight": "highlight.png", "empty_slot": "empty_slot.png"},
             "basic": {"highlight": "highlight.png"},
@@ -184,15 +200,21 @@ REGIONS = {
                 "area_buying": (305, 220, 640, 640),
                 "first_slot_selling": (35, 183, 15, 15),
                 "logo_buying": (622, 128, 10, 12),
+                "item_sold_notification_x_button": (1125, 450, 200, 400),
             },
-            "buy_or_sell_items": {"logo": (600, 180, 400, 20)},
+            "buy_or_sell_items": {
+                "logo": (600, 180, 400, 20),
+                "gold_symbol_1": (100, 250, 1100, 100),
+                "gold_symbol_2": (100, 400, 1100, 100),
+            },
         },
     },
     "stash": {
         "tabs": {
             "currency": {
                 "area": (15, 120, 650, 630),
-                "middle_slot_area": (290, 365, 20, 20),
+                "middle_slot_area": (290, 365, 80, 160),
+                "middle_slot_top_left_area": (290, 365, 20, 20),
                 "bottom_extra_slots_area": (120, 620, 340, 130),
             },
             "quad": {"area": (15, 120, 635, 640)},
@@ -202,9 +224,13 @@ REGIONS = {
     },
     "inventory": {"area": (1270, 590, 640, 260)},
     "loading": {"loading_screen": (1250, 850, 300, 300)},
-    "desecrate": {
-        'options_area': (400, 610, 250, 200)
-    }
+    "crafts": {
+        "desecrate": {
+            "options_area": (400, 610, 250, 200),
+            "desecrated_modifiers_tooltip_popup": (340, 250, 500, 500),
+            "third_choice_bottom_right_corner": (830, 780, 77, 66),
+        },
+    },
 }
 
 STARTING_POSITIONS = {
@@ -247,11 +273,13 @@ STARTING_POSITIONS = {
     "inventory": {
         "first_slot": (1300, 615),
     },
-    "desecrate": {
-        "reveal_button": (625, 855),
-        "confirm_button": (625, 855),
-        "reroll_button": (870, 855),
-        'item_slot': (630, 460)
+    "crafts": {
+        "desecrate": {
+            "reveal_button": (625, 855),
+            "confirm_button": (625, 855),
+            "reroll_button": (870, 855),
+            "item_slot": (630, 460),
+        },
     },
 }
 

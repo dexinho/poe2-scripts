@@ -1,6 +1,8 @@
 import pyautogui
 from utility.inventory_management import select_currency_in_inventory
 from utility.text_from_image import read_text_from_image
+from utility.locate_image import locate_image
+from utility.wait_for import wait_for
 from utility.config import (
     REGIONS,
     FOLDER_PATHS,
@@ -15,13 +17,27 @@ import random
 pyautogui.PAUSE = 0
 
 
+def is_final_choice_revealed():
+    image_res = locate_image(
+        region=REGIONS["crafts"]["desecrate"]["third_choice_bottom_right_corner"],
+        folder_path=FOLDER_PATHS["assets"]["images"]["crafts"]["desecrate"],
+        image_name=IMAGE_NAMES["crafts"]["desecrate"][
+            "third_choice_bottom_right_corner"
+        ],
+        confidence=0.8,
+        constant_focus=False,
+    )
+
+    return image_res
+
+
 def get_desecrate_options():
     options = []
 
     regions = [
-        {"left": 380, "top": 600, "width": 500, "height": 50},
-        {"left": 380, "top": 685, "width": 500, "height": 50},
-        {"left": 380, "top": 765, "width": 500, "height": 50},
+        (380, 600, 500, 50),
+        (380, 685, 500, 50),
+        (380, 765, 500, 50),
     ]
 
     for region in regions:
@@ -32,12 +48,7 @@ def get_desecrate_options():
 
         options.append(
             {
-                "region": (
-                    region["left"],
-                    region["top"],
-                    region["width"],
-                    region["height"],
-                ),
+                "region": region,
                 "text": text,
             }
         )
@@ -49,14 +60,18 @@ def get_desecrate_options():
 
 
 def reroll_desecrate_mods():
-    pyautogui.moveTo(STARTING_POSITIONS["desecrate"]["reroll_button"])
+    pyautogui.moveTo(STARTING_POSITIONS["crafts"]["desecrate"]["reroll_button"])
     pyautogui.sleep(0.02)
     pyautogui.click()
-    pyautogui.sleep(0.8)
+    pyautogui.sleep(0.7)
 
 
-def locate_desecrate_option(desired_desecrate_mod):
+def locate_desecrate_options(desired_desecrate_mod, avoid_desecrate_mod=None):
     desecrate_options = get_desecrate_options()
+    desired_desecrate_mod_found = False
+    desired_desecrate_mod_position = None
+    avoid_desecrate_mod_found = False
+    avoid_desecrate_mod_position = None
 
     if not desecrate_options:
         print("no desecrate options...")
@@ -65,53 +80,112 @@ def locate_desecrate_option(desired_desecrate_mod):
     print(desecrate_options)
 
     for desecrate_option in desecrate_options:
-        match = re.search(
+        match_desired_desecrate_mod = False
+        match_avoid_desecrate_mod = False
+        match_desired_desecrate_mod = re.search(
             desired_desecrate_mod, desecrate_option["text"], re.IGNORECASE
         )
 
-        if match:
-            region = desecrate_option["region"]
-            x, y, width, height = region
+        if avoid_desecrate_mod:
+            match_avoid_desecrate_mod = re.search(
+                avoid_desecrate_mod, desecrate_option["text"], re.IGNORECASE
+            )
 
-            center_x = x + width // 2
-            center_y = y + height // 2
+        region = desecrate_option["region"]
+        x, y, width, height = region
 
-            return (center_x, center_y)
+        center_x = x + width // 2
+        center_y = y + height // 2
 
-    return None
+        if match_desired_desecrate_mod:
+
+            desired_desecrate_mod_found = True
+            desired_desecrate_mod_position = (center_x, center_y)
+
+        elif match_avoid_desecrate_mod:
+
+            avoid_desecrate_mod_found = True
+            avoid_desecrate_mod_position = (center_x, center_y)
+
+    return {
+        "desired_desecrate_mod": {
+            "found": desired_desecrate_mod_found,
+            "position": desired_desecrate_mod_position,
+        },
+        "avoid_desecrate_mod": {
+            "found": avoid_desecrate_mod_found,
+            "position": avoid_desecrate_mod_position,
+        },
+    }
 
 
-def to_well_of_souls(desecrated_item_position):
+def to_well_of_souls(desecrated_item_position=None):
+    if desecrated_item_position:
+        pyautogui.moveTo(desecrated_item_position)
+        pyautogui.sleep(0.05)
+
     with pyautogui.hold("ctrl"):
-        pyautogui.sleep(0.1)
+        pyautogui.sleep(0.15)
         pyautogui.click()
         pyautogui.sleep(0.05)
 
     return True
 
 
-def from_well_of_souls(desecrate_option_position=None):
-    if desecrate_option_position:
-        pyautogui.moveTo(desecrate_option_position)
-        pyautogui.sleep(0.02)
-        pyautogui.click()
-        pyautogui.sleep(0.02)
-    else:
-        x, y, width, height = REGIONS["desecrate"]["options_area"]
+def from_well_of_souls(
+    desired_desecrate_mod_position=None, avoid_desecrate_mod_position=None
+):
+    x, y, width, height = REGIONS["crafts"]["desecrate"]["options_area"]
+    third = height // 3
+
+    print(avoid_desecrate_mod_position)
+    if desired_desecrate_mod_position:
+        pyautogui.moveTo(desired_desecrate_mod_position)
+        pyautogui.sleep(0.2)
+
+    elif avoid_desecrate_mod_position:
+        print("ulaziiiiiiiii")
+
+        avoid_y = avoid_desecrate_mod_position[1]
+        avoid_third = min((avoid_y - y) // third, 2)
+
+        valid_thirds = [0, 2]
+
+        if avoid_third in valid_thirds:
+            valid_thirds.remove(avoid_third)
+
+        roll = random.choice(valid_thirds)
+
         pyautogui.moveTo(
             random.randint(x, x + width - 1),
-            random.randint(y, y + height - 1),
+            random.randint(
+                y + roll * third,
+                y + (roll + 1) * third - 1,
+            ),
         )
-        pyautogui.sleep(0.02)
-        pyautogui.click()
-        pyautogui.sleep(0.02)
+        pyautogui.sleep(0.2)
 
-    pyautogui.moveTo(STARTING_POSITIONS["desecrate"]["confirm_button"])
+    else:
+
+        roll = random.choice((0, 2))
+
+        pyautogui.moveTo(
+            random.randint(x, x + width - 1),
+            random.randint(
+                y + roll * third,
+                y + (roll + 1) * third - 1,
+            ),
+        )
+
+    pyautogui.sleep(0.05)
+    pyautogui.click()
+    pyautogui.sleep(0.03)
+    pyautogui.moveTo(STARTING_POSITIONS["crafts"]["desecrate"]["confirm_button"])
     pyautogui.sleep(0.04)
     pyautogui.click()
     pyautogui.sleep(0.02)
-    pyautogui.moveTo(STARTING_POSITIONS["desecrate"]["item_slot"])
-    pyautogui.sleep(0.05)
+    pyautogui.moveTo(STARTING_POSITIONS["crafts"]["desecrate"]["item_slot"])
+    pyautogui.sleep(0.1)
     with pyautogui.hold("ctrl"):
         pyautogui.sleep(0.05)
         pyautogui.click()
@@ -125,17 +199,18 @@ def desecrate(
     max_items_to_desecrate,
     currencies_to_use,
     max_desecrate_attempts,
-    item_to_craft_width=1,
-    item_to_craft_height=1,
+    item_to_crafts_width=1,
+    item_to_crafts_height=1,
     reroll_desecrate_mods_available=True,
+    avoid_desecrate_mod=None,
 ):
-    focus_game()
+    focus_game(mouse_pos=(633, 310))
     desecrate_attempts_tried = 0
     items_desecrated = 0
-    for i in range(0, 12, item_to_craft_width):
-        for j in range(0, 5, item_to_craft_height):
+    for i in range(0, 12, item_to_crafts_width):
+        for j in range(0, 5, item_to_crafts_height):
             if items_desecrated >= max_items_to_desecrate:
-                print("item craft limit reached...")
+                print("item crafts limit reached...")
                 return True
 
             desecrated_item_position = (
@@ -164,21 +239,27 @@ def desecrate(
 
                 to_well_of_souls(desecrated_item_position=desecrated_item_position)
 
-                pyautogui.moveTo(STARTING_POSITIONS["desecrate"]["reveal_button"])
+                pyautogui.moveTo(
+                    STARTING_POSITIONS["crafts"]["desecrate"]["reveal_button"]
+                )
                 pyautogui.sleep(0.04)
                 pyautogui.click()
                 pyautogui.sleep(0.8)
+                remove_sold_item_notification_popup()
 
                 desecrate_attempts_tried += 1
 
-                desecrate_option_location = locate_desecrate_option(
-                    desired_desecrate_mod=desired_desecrate_mod
+                desecrate_option_location = locate_desecrate_options(
+                    desired_desecrate_mod=desired_desecrate_mod,
+                    avoid_desecrate_mod=avoid_desecrate_mod,
                 )
 
-                if desecrate_option_location:
+                if desecrate_option_location["desired_desecrate_mod"]["found"]:
                     items_desecrated += 1
                     from_well_of_souls(
-                        desecrate_option_position=desecrate_option_location
+                        desired_desecrate_mod_position=desecrate_option_location[
+                            "desired_desecrate_mod"
+                        ]["position"],
                     )
                     break
 
@@ -187,26 +268,78 @@ def desecrate(
                     continue
 
                 reroll_desecrate_mods()
-                desecrate_option_location = locate_desecrate_option(
-                    desired_desecrate_mod=desired_desecrate_mod
+                remove_sold_item_notification_popup()
+                desecrate_option_location = locate_desecrate_options(
+                    desired_desecrate_mod=desired_desecrate_mod,
+                    avoid_desecrate_mod=avoid_desecrate_mod,
                 )
-                if desecrate_option_location:
+
+                if desecrate_option_location["desired_desecrate_mod"]["found"]:
                     items_desecrated += 1
                     from_well_of_souls(
-                        desecrate_option_position=desecrate_option_location
+                        desired_desecrate_mod_position=desecrate_option_location[
+                            "desired_desecrate_mod"
+                        ]["position"]
                     )
                     break
 
-                from_well_of_souls()
+                from_well_of_souls(
+                    avoid_desecrate_mod_position=desecrate_option_location[
+                        "avoid_desecrate_mod"
+                    ]["position"]
+                )
 
 
-# desired_desecrate_mod = "(4[7-9]|50).*spirit"
-desired_desecrate_mod = "18([0-9]).*max.*mana|[7-8]%.*max.*mana|(4[7-9]|50).*spirit"
-currencies_to_use = ["runic_alloy", "preserved_collarbone"]
+# def remove_desecrate_tooltip_popup():
+#     tooltip_res = locate_image(
+#         folder_path=FOLDER_PATHS["assets"]["images"]["crafts"]["desecrate"],
+#         image_name=IMAGE_NAMES["crafts"]["desecrate"][
+#             "desecrated_modifiers_tooltip_popup"
+#         ],
+#         region=REGIONS["crafts"]["desecrate"]["desecrated_modifiers_tooltip_popup"],
+#         confidence=0.8,
+#     )
+
+#     pyautogui.moveTo(tooltip_res["position"])
+
+
+def remove_sold_item_notification_popup():
+    tooltip_res = locate_image(
+        folder_path=FOLDER_PATHS["assets"]["images"]["npcs"]["ange"]["merchant"],
+        image_name=IMAGE_NAMES["npcs"]["ange"]["merchant"][
+            "item_sold_notification_x_button"
+        ],
+        region=REGIONS["npcs"]["ange"]["merchant"]["item_sold_notification_x_button"],
+        confidence=0.8,
+    )
+
+    if tooltip_res:
+        pyautogui.moveTo(tooltip_res["position"])
+        pyautogui.sleep(0.05)
+        pyautogui.click()
+        pyautogui.sleep(0.05)
+
+        return True
+
+    return None
+
+# avoid_desecrate_mod = "increased global armour.*shield"
+desired_desecrate_mod = "(4[7-9]|50).*spirit"
+# desired_desecrate_mod = "(2[7-9]|30)%.*spell damage"
+# desired_desecrate_mod = "3.*spell skills"
+# desired_desecrate_mod = "2[5-8].*cast speed"
+# desired_desecrate_mod = "18([0-9]).*max.*mana|[7-8]%.*max.*mana"
+# desired_desecrate_mod = "18([0-9]).*max.*mana|[7-8]%.*max.*mana|(4[7-9]|50).*spirit"
+# currencies_to_use = ["perfect_essence_of_the_infinite", "preserved_collarbone"]
+runic_alloy = "runic_alloy"
+perfect_essence_of_enhancment = "perfect_essence_of_enhancment"
+preserved_collarbone = "preserved_collarbone"
+currencies_to_use = [runic_alloy, preserved_collarbone]
 desecrate(
     desired_desecrate_mod=desired_desecrate_mod,
+    # avoid_desecrate_mod=avoid_desecrate_mod,
     currencies_to_use=currencies_to_use,
-    max_items_to_desecrate=5,
-    max_desecrate_attempts=150,
+    max_items_to_desecrate=3,
+    max_desecrate_attempts=95,
     reroll_desecrate_mods_available=True,
 )
