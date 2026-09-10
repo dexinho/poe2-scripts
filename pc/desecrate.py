@@ -323,10 +323,12 @@ def remove_sold_item_notification_popup():
 
     return None
 
+max_items_to_desecrate = 3
+max_desecrate_attempts = 90
 # avoid_desecrate_mod = "increased global armour.*shield"
 desired_desecrate_mod = "(4[7-9]|50).*spirit"
 # desired_desecrate_mod = "(2[7-9]|30)%.*spell damage"
-# desired_desecrate_mod = "3.*spell skills"
+# desired_desecrate_mod = "3.*proj.*lls"
 # desired_desecrate_mod = "2[5-8].*cast speed"
 # desired_desecrate_mod = "18([0-9]).*max.*mana|[7-8]%.*max.*mana"
 # desired_desecrate_mod = "18([0-9]).*max.*mana|[7-8]%.*max.*mana|(4[7-9]|50).*spirit"
@@ -339,7 +341,7 @@ desecrate(
     desired_desecrate_mod=desired_desecrate_mod,
     # avoid_desecrate_mod=avoid_desecrate_mod,
     currencies_to_use=currencies_to_use,
-    max_items_to_desecrate=3,
-    max_desecrate_attempts=95,
+    max_items_to_desecrate=max_items_to_desecrate,
+    max_desecrate_attempts=max_desecrate_attempts,
     reroll_desecrate_mods_available=True,
 )

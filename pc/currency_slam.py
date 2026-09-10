@@ -45,22 +45,21 @@ def check_middle_slot():
     return image_res
 
 
-def currency_slam(
-    highlight_text,
-    tab_name,
-    currency_name,
-    max_items_to_craft,
-    currency_quantity_available,
-    item_to_craft_width=1,
-    item_to_craft_height=1,
-):
-    focus_game()
+def craft_items(craft_goal):
     currency_quanitity_used = 0
     items_crafted = 0
     craft_click_delay = 0.02
-    random_pause_limit = int(random.uniform(100, 200))
+    random_pause_limit = int(random.uniform(20, 50))
     random_pause_delay = random.uniform(0.1, 0.2)
     currency_quanitity_used_checkpoint = 5
+    currency_name = craft_goal["currency_name"]
+    highlight_text = craft_goal["highlight_text"]
+    crafting_currency_available_quantity = craft_goal[
+        "crafting_currency_available_quantity"
+    ]
+    max_items_to_craft = craft_goal["max_items_to_craft"]
+    item_to_craft_width = craft_goal["item_to_craft_width"]
+    item_to_craft_height = craft_goal["item_to_craft_height"]
 
     for i in range(0, 12, item_to_craft_width):
         for j in range(0, 5, item_to_craft_height):
@@ -98,15 +97,14 @@ def currency_slam(
             pyautogui.rightClick()
             pyautogui.sleep(0.05)
 
-            if tab_name == "currency":
-                base_x, base_y = STARTING_POSITIONS["stash"]["tabs"]["currency"][
-                    "middle_slot"
-                ]
-                position_offset = 30
-                pyautogui.moveTo(
-                    base_x + random.randint(-position_offset, position_offset),
-                    base_y + random.randint(-position_offset, position_offset),
-                )
+            middle_slot_x, middle_slot_y = STARTING_POSITIONS["stash"]["tabs"]["currency"][
+                "middle_slot"
+            ]
+            position_offset = 30
+            pyautogui.moveTo(
+                middle_slot_x + random.randint(-position_offset, position_offset),
+                middle_slot_y + random.randint(-position_offset, position_offset),
+            )
 
             highlight_items(f'"{highlight_text}"')
             print("searching for", highlight_text)
@@ -140,7 +138,7 @@ def currency_slam(
                 pyautogui.sleep(craft_click_delay)
 
                 currency_quanitity_used += 1
-                if currency_quanitity_used >= currency_quantity_available:
+                if currency_quanitity_used >= crafting_currency_available_quantity:
                     print("chaos orb limit reached....")
                     return True
 
@@ -166,53 +164,78 @@ def currency_slam(
                     pyautogui.rightClick()
                     pyautogui.sleep(0.05)
 
-                    if tab_name == "currency":
-                        base_x, base_y = STARTING_POSITIONS["stash"]["tabs"][
-                            "currency"
-                        ]["middle_slot"]
-                        position_offset = 30
-                        pyautogui.moveTo(
-                            base_x + random.randint(-position_offset, position_offset),
-                            base_y + random.randint(-position_offset, position_offset),
-                            0.1,
-                        )
+                    middle_slot_x, middle_slot_y = STARTING_POSITIONS["stash"]["tabs"]["currency"][
+                        "middle_slot"
+                    ]
+                    position_offset = 30
+                    pyautogui.moveTo(
+                        middle_slot_x + random.randint(-position_offset, position_offset),
+                        middle_slot_y + random.randint(-position_offset, position_offset),
+                        0.1,
+                    )
 
                     pyautogui.sleep(random_pause_delay)
+
+
+def currency_slam(
+    craft_targets,
+):
+    focus_game()
+
+    for craft_target in craft_targets:
+        craft_items(craft_target)
 
     return True
 
 
-tab_name = "currency"
-currency_quantity_available = 15444
-max_items_to_craft = 2
+item_to_craft_width = 1
+item_to_craft_height = 1
+crafting_currency_available_quantity = 16444
+max_items_to_craft = 20
 currency_name = "chaos orb"
-# highlight_text = "(4[7-9]|50).*spirit|3 to level of all spell skills"
-highlight_text = "(4[7-9]|50).*spirit"
-# highlight_text = "4 to level of all spell skills"
-# highlight_text = "3 to level of all projectile skills"
+# currency_name =
+# highlight_text = "(4[7-9]|50).*spirit"
+highlight_text = "(4[7-9]|50).*spirit|3 to level.*ell skills"
+# highlight_text = "3 to level of all (proj.*|melee.*)lls"
+# highlight_text = "4.*spell skills|4.*melee skills"
+# highlight_text = "3 to level of all spell skills"
+# highlight_text = "(4[7-9]|50).*rit|3.*melee.*lls|3.*proj.*lls"
+# highlight_text = "(4[7-9]|50).*rit|4.*melee.*lls|3.*proj.*lls|3[5-9].*inc.*crit.*nus"
+# highlight_text = "3[1-8].*spirit"
+# highlight_text = "4.*minion skills"
+# highlight_text = "3[5-9].*inc.*crit|6[1-5].*spirit|3[5-8].*spirit"
 # highlight_text = "18([0-9]).*max.*mana|[7-8]%.*max.*mana|(4[7-9]|50).*spirit|3.*spell skills"
 # highlight_text = "1(6[5-9]|[7-8][0-9]).*max.*mana|[7-8]%.*max.*mana|(4[7-9]|50).*spirit|3.*spell skills"
 # highlight_text_minion = "3.*spell skills|3.*minion skills"
 # highlight_text_minion = "1(6[5-9]|[7-8][0-9]).*max.*mana|[7-8]%.*max.*mana|(4[7-9]|50).*spirit|3.*spell skills|3.*minion skills"
 
-# currency_name = "sibilant catalyst"
-# highlight_text = "quality.*40%"
+craft_targets = [
+    {
+        "currency_name": currency_name,
+        "highlight_text": highlight_text,
+        "crafting_currency_available_quantity": crafting_currency_available_quantity,
+        "max_items_to_craft": max_items_to_craft,
+        "item_to_craft_width": item_to_craft_width,
+        "item_to_craft_height": item_to_craft_height,
+    }
+]
 
-# currency_slam(
-#     highlight_text=highlight_text,
-#     currency_name=currency_name,
-#     tab_name=tab_name,
-#     max_items_to_craft=max_items_to_craft,
-#     currency_quantity_available=currency_quantity_available,
-# )
-
-# currency_name = "vaal catalysing infuser"
-# highlight_text = "quality.*50%|corrupted"
-
-currency_slam(
-    highlight_text=highlight_text,
-    currency_name=currency_name,
-    tab_name=tab_name,
-    max_items_to_craft=max_items_to_craft,
-    currency_quantity_available=currency_quantity_available,
-)
+# craft_targets = [
+#     {
+#         "currency_name": "reaver catalyst",
+#         "highlight_text": "quality.*40%",
+#         "crafting_currency_available_quantity": crafting_currency_available_quantity,
+#         "max_items_to_craft": max_items_to_craft,
+#         "item_to_craft_width": item_to_craft_width,
+#         "item_to_craft_height": item_to_craft_height,
+#     },
+#     {
+#         "currency_name": "vaal catalysing infuser",
+#         "highlight_text": "quality.*50%|corrupted",
+#         "crafting_currency_available_quantity": crafting_currency_available_quantity,
+#         "max_items_to_craft": max_items_to_craft,
+#         "item_to_craft_width": item_to_craft_width,
+#         "item_to_craft_height": item_to_craft_height,
+#     },
+# ]
+currency_slam(craft_targets=craft_targets)
