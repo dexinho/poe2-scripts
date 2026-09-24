@@ -23,6 +23,11 @@ FOLDER_PATHS = {
             },
             "crafts": {
                 "desecrate": BASE_PATH / "assets" / "images" / "crafts" / "desecrate",
+                "reforging_bench": BASE_PATH
+                / "assets"
+                / "images"
+                / "crafts"
+                / "reforging_bench",
             },
             "items": BASE_PATH / "assets" / "images" / "items",
             "loading": BASE_PATH / "assets" / "images" / "loading",
@@ -84,7 +89,6 @@ FOLDER_PATHS = {
         }
     }
 }
-
 
 IMAGE_NAMES = {
     "main": {
@@ -150,6 +154,9 @@ IMAGE_NAMES = {
             "desecrated_modifiers_tooltip_popup": "desecrated_modifiers_tooltip_popup.png",
             "third_choice_bottom_right_corner": "third_choice_bottom_right_corner.png",
         },
+        "reforging_bench": {
+            "logo": "logo.png",
+        },
     },
     "stash": {
         "main": {"logo": "logo.png"},
@@ -161,6 +168,7 @@ IMAGE_NAMES = {
                 "chaos_orb": "chaos_orb.png",
                 "vaal_catalysing_infuser": "vaal_catalysing_infuser.png",
                 "sibilant_catalyst": "sibilant_catalyst.png",
+                "necrotic_catalyst": "necrotic_catalyst.png",
                 "reaver_catalyst": "reaver_catalyst.png",
             },
             "quad": {"highlight": "highlight.png", "empty_slot": "empty_slot.png"},
@@ -228,19 +236,24 @@ REGIONS = {
     "loading": {"loading_screen": (1250, 850, 300, 300)},
     "crafts": {
         "desecrate": {
-            "options_area": (400, 610, 250, 200),
+            "options_area": (380, 500, 500, 230),
             "desecrated_modifiers_tooltip_popup": (340, 250, 500, 500),
-            "third_choice_bottom_right_corner": (830, 780, 77, 66),
+            "third_choice_bottom_right_corner": (850, 710, 40, 40),
         },
+        "reforging_bench": {"logo": (600, 140, 50, 50)},
     },
 }
 
 STARTING_POSITIONS = {
     "stash": {
         "position": (1110, 375),
+        "exit_button": (625, 65),
         "tabs": {
             "first_slot": (750, 100),
-            "currency": {"middle_slot": (330, 440)},
+            "currency": {
+                "middle_slot": (330, 440),
+                "extra_slots_first_slot": (155, 655),
+            },
             "quad": {"first_slot": (14, 125)},
         },
     },
@@ -277,10 +290,16 @@ STARTING_POSITIONS = {
     },
     "crafts": {
         "desecrate": {
-            "reveal_button": (625, 855),
-            "confirm_button": (625, 855),
-            "reroll_button": (870, 855),
-            "item_slot": (630, 460),
+            "reveal_button": (625, 765),
+            "confirm_button": (625, 765),
+            "reroll_button": (870, 765),
+            "item_slot": (630, 360),
+        },
+        "reforging_bench": {
+            "position": (770, 420),
+            "reforge_button": (625, 865),
+            "reforging_result_slot": (625, 410),
+            "exit_button": (880, 180),
         },
     },
 }

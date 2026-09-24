@@ -13,6 +13,7 @@ from utility.stash_management import highlight_items, locate_currency_in_currenc
 from utility.focus_game import focus_game
 from utility.wait_for import wait_for
 from utility.move_item import move_item
+from utility.main import shut_down
 
 pyautogui.PAUSE = 0.005
 
@@ -97,9 +98,9 @@ def craft_items(craft_goal):
             pyautogui.rightClick()
             pyautogui.sleep(0.05)
 
-            middle_slot_x, middle_slot_y = STARTING_POSITIONS["stash"]["tabs"]["currency"][
-                "middle_slot"
-            ]
+            middle_slot_x, middle_slot_y = STARTING_POSITIONS["stash"]["tabs"][
+                "currency"
+            ]["middle_slot"]
             position_offset = 30
             pyautogui.moveTo(
                 middle_slot_x + random.randint(-position_offset, position_offset),
@@ -164,13 +165,15 @@ def craft_items(craft_goal):
                     pyautogui.rightClick()
                     pyautogui.sleep(0.05)
 
-                    middle_slot_x, middle_slot_y = STARTING_POSITIONS["stash"]["tabs"]["currency"][
-                        "middle_slot"
-                    ]
+                    middle_slot_x, middle_slot_y = STARTING_POSITIONS["stash"]["tabs"][
+                        "currency"
+                    ]["middle_slot"]
                     position_offset = 30
                     pyautogui.moveTo(
-                        middle_slot_x + random.randint(-position_offset, position_offset),
-                        middle_slot_y + random.randint(-position_offset, position_offset),
+                        middle_slot_x
+                        + random.randint(-position_offset, position_offset),
+                        middle_slot_y
+                        + random.randint(-position_offset, position_offset),
                         0.1,
                     )
 
@@ -181,6 +184,7 @@ def currency_slam(
     craft_targets,
 ):
     focus_game()
+    
 
     for craft_target in craft_targets:
         craft_items(craft_target)
@@ -190,17 +194,21 @@ def currency_slam(
 
 item_to_craft_width = 1
 item_to_craft_height = 1
-crafting_currency_available_quantity = 16444
-max_items_to_craft = 20
+crafting_currency_available_quantity = 26444
+max_items_to_craft = 60
 currency_name = "chaos orb"
 # currency_name =
 # highlight_text = "(4[7-9]|50).*spirit"
-highlight_text = "(4[7-9]|50).*spirit|3 to level.*ell skills"
+# highlight_text = "(4[7-9]|50).*spirit|3.*spell skills"
+highlight_text = "(4[7-9]|50).*spirit|3.*minion skills"
+# highlight_text = "4.*minion skills"
 # highlight_text = "3 to level of all (proj.*|melee.*)lls"
-# highlight_text = "4.*spell skills|4.*melee skills"
+# highlight_text = "4.*spell.*ls|4.*melee.*ls|4.*minion.*ls"
+# highlight_text = "(4[7-9]|50).*rit|4.*spell skills|4.*melee skills"
 # highlight_text = "3 to level of all spell skills"
 # highlight_text = "(4[7-9]|50).*rit|3.*melee.*lls|3.*proj.*lls"
 # highlight_text = "(4[7-9]|50).*rit|4.*melee.*lls|3.*proj.*lls|3[5-9].*inc.*crit.*nus"
+# highlight_text = "(4[7-9]|50).*rit|4.*melee.*lls|3[5-9].*inc.*crit.*nus"
 # highlight_text = "3[1-8].*spirit"
 # highlight_text = "4.*minion skills"
 # highlight_text = "3[5-9].*inc.*crit|6[1-5].*spirit|3[5-8].*spirit"
@@ -222,7 +230,7 @@ craft_targets = [
 
 # craft_targets = [
 #     {
-#         "currency_name": "reaver catalyst",
+#         "currency_name": "necrotic catalyst",
 #         "highlight_text": "quality.*40%",
 #         "crafting_currency_available_quantity": crafting_currency_available_quantity,
 #         "max_items_to_craft": max_items_to_craft,
@@ -239,3 +247,4 @@ craft_targets = [
 #     },
 # ]
 currency_slam(craft_targets=craft_targets)
+# shut_down()

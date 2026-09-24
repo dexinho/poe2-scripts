@@ -9,9 +9,9 @@ def click_icon():
     image_res = locate_image(
         folder_path=FOLDER_PATHS["assets"]["images"]["main"],
         image_name=IMAGE_NAMES["main"]["icon"],
-        confidence=0.9
+        confidence=0.9,
     )
-    
+
     if image_res:
         pyautogui.moveTo(1, 1)
         pyautogui.sleep(0.1)
@@ -116,3 +116,17 @@ def start_poe2(max_retries=10):
 
     print("Failed to start PoE2 after multiple attempts.")
     exit()
+
+
+def shut_down():
+    pyautogui.sleep(0.25)
+    pyautogui.moveTo(25, 25)  # focus the game
+    pyautogui.sleep(0.25)
+    pyautogui.rightClick()
+    pyautogui.sleep(0.25)
+    pyautogui.keyDown("alt")
+    pyautogui.sleep(0.25)
+    pyautogui.press("f4")
+    pyautogui.sleep(0.25)
+    pyautogui.keyUp("alt")
+    pyautogui.sleep(0.25)

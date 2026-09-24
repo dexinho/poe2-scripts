@@ -27,7 +27,7 @@ def is_final_choice_revealed():
         confidence=0.8,
         constant_focus=False,
     )
-
+    
     return image_res
 
 
@@ -35,9 +35,9 @@ def get_desecrate_options():
     options = []
 
     regions = [
-        (380, 600, 500, 50),
-        (380, 685, 500, 50),
-        (380, 765, 500, 50),
+        (380, 500, 500, 60),
+        (380, 580, 500, 60),
+        (380, 660, 500, 60),
     ]
 
     for region in regions:
@@ -253,7 +253,7 @@ def desecrate(
                     desired_desecrate_mod=desired_desecrate_mod,
                     avoid_desecrate_mod=avoid_desecrate_mod,
                 )
-
+                
                 if desecrate_option_location["desired_desecrate_mod"]["found"]:
                     items_desecrated += 1
                     from_well_of_souls(
@@ -266,7 +266,7 @@ def desecrate(
                 if not reroll_desecrate_mods_available:
                     from_well_of_souls()
                     continue
-
+                
                 reroll_desecrate_mods()
                 remove_sold_item_notification_popup()
                 desecrate_option_location = locate_desecrate_options(
@@ -323,20 +323,19 @@ def remove_sold_item_notification_popup():
 
     return None
 
-max_items_to_desecrate = 3
-max_desecrate_attempts = 90
+max_items_to_desecrate = 5
+max_desecrate_attempts = 119
 # avoid_desecrate_mod = "increased global armour.*shield"
-desired_desecrate_mod = "(4[7-9]|50).*spirit"
+# desired_desecrate_mod = "(4[7-9]|50).*spirit"
+# desired_desecrate_mod = "3.*spell.*lls"
 # desired_desecrate_mod = "(2[7-9]|30)%.*spell damage"
-# desired_desecrate_mod = "3.*proj.*lls"
+# desired_desecrate_mod = "3.*proj.*lls|3.*mele.*lls"
+desired_desecrate_mod = "3.*mele.*lls"
 # desired_desecrate_mod = "2[5-8].*cast speed"
 # desired_desecrate_mod = "18([0-9]).*max.*mana|[7-8]%.*max.*mana"
 # desired_desecrate_mod = "18([0-9]).*max.*mana|[7-8]%.*max.*mana|(4[7-9]|50).*spirit"
-# currencies_to_use = ["perfect_essence_of_the_infinite", "preserved_collarbone"]
-runic_alloy = "runic_alloy"
-perfect_essence_of_enhancment = "perfect_essence_of_enhancment"
-preserved_collarbone = "preserved_collarbone"
-currencies_to_use = [runic_alloy, preserved_collarbone]
+currencies_to_use = ["perfect_essence_of_the_infinite", "preserved_collarbone"]
+# currencies_to_use = ['runic_alloy', 'preserved_collarbone']
 desecrate(
     desired_desecrate_mod=desired_desecrate_mod,
     # avoid_desecrate_mod=avoid_desecrate_mod,

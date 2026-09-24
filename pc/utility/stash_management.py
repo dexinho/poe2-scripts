@@ -81,6 +81,7 @@ def locate_currency_in_currency_tab(currency_name, by_image, by_text):
 
 
 def select_stash_tab(tab_position, slow_load=True):
+    # 0 is first tab
     x = STARTING_POSITIONS["stash"]["tabs"]["first_slot"][0]
     y = (
         STARTING_POSITIONS["stash"]["tabs"]["first_slot"][1]
