@@ -1,5 +1,6 @@
 import pyautogui
 import random
+import math
 from utility.inventory_management import from_inventory
 from utility.text_from_image import read_text_from_image
 from utility.locate_image import locate_image
@@ -17,13 +18,13 @@ from utility.stash_management import open_stash, select_stash_tab
 pyautogui.PAUSE = 0
 
 
-def take_currency(quantity):
+def take_currency(stack_quantity):
     pyautogui.moveTo(
         STARTING_POSITIONS["stash"]["tabs"]["currency"]["extra_slots_first_slot"]
     )
     pyautogui.sleep(0.05)
 
-    for i in range(0, quantity):
+    for _ in range(0, stack_quantity):
         with pyautogui.hold("ctrl"):
             pyautogui.sleep(0.05)
             pyautogui.click()
@@ -116,8 +117,8 @@ def exit_reforging_bench():
 
 
 def reforge_items():
-    quantity = 45
-    reforging_bench_items_input_limit = 200
+    stack_quantity = 6
+    reforging_bench_items_input_limit = 6
     focus_game()
 
     while True:
@@ -125,14 +126,14 @@ def reforge_items():
         wait_for(open_stash, delay=0.1)
         select_stash_tab(tab_position=0, slow_load=False)
         from_inventory(row_range=(0, 5), col_range=(0, 12))
-        take_currency(quantity)
+        take_currency(stack_quantity)
         exit_stash()
         wait_for(open_reforging_bench)
 
         reforging_bench_slot_limit = 3
-        reforging_bench_items_input = 0
+        reforging_bench_items_reforged = 0
         reforging_bench_attempts = 10
-        for i in range(0, 9):
+        for i in range(0, math.ceil(reforging_bench_items_input_limit / 5)):
             for j in range(0, 5):
                 with pyautogui.hold("ctrl"):
                     pyautogui.moveTo(
@@ -145,14 +146,14 @@ def reforge_items():
                     pyautogui.click()
                     pyautogui.sleep(0.02)
 
-                    reforging_bench_items_input += 1
+                    reforging_bench_items_reforged += 1
+                    
+                    if reforging_bench_items_reforged % reforging_bench_slot_limit == 0:
+                        start_reforging(attempts=reforging_bench_attempts)
 
-                    if reforging_bench_items_input >= reforging_bench_items_input_limit:
+                    if reforging_bench_items_reforged == reforging_bench_items_input_limit:
                         print("reforging input limit reached...")
                         return True
-
-                    if reforging_bench_items_input % reforging_bench_slot_limit == 0:
-                        start_reforging(attempts=reforging_bench_attempts)
 
         exit_reforging_bench()
 
